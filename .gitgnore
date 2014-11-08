@@ -1,24 +1,31 @@
-# OS generated files #
-######################
+=============== 
+Unity generated
+===============
+Temp/
+Library/
+
+=====================================
+Visual Studio / MonoDevelop generated
+=====================================
+ExportedObj/
+obj/
+*.svd
+*.userprefs
+/*.csproj
+*.pidb
+*.suo
+/*.sln
+*.user
+*.unityproj
+*.booproj
+
+============
+OS generated
+============
 .DS_Store
 .DS_Store?
 ._*
 .Spotlight-V100
 .Trashes
-Icon?
 ehthumbs.db
 Thumbs.db
- 
-# Temporary and local files #
-#############################
-[Oo]bj/
-[Tt]emp/
-[Ll]ibrary/
-*.tmproj
-*.csproj
-*.unityproj
-*.sln
-*.suo
-*.user
-*.pidb
-*.userprefs
