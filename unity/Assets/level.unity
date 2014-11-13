@@ -284,7 +284,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b9d16dc4f4704f448e3123681944d10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LeveltoChange: TestRaum
+  LevelToChange: TestRaum
+  LoadLevelOnTouch: 
+  LoadLevelOnReturn: hgf
 --- !u!61 &1332228597
 BoxCollider2D:
   m_ObjectHideFlags: 0
