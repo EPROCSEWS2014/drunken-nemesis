@@ -2,6 +2,8 @@
 using System.Collections;
 
 public class NewBehaviourScript : MonoBehaviour {
+	string dennis = "Test";
+
 
 	// Use this for initialization
 	void Start () {
