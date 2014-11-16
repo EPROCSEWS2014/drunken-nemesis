@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[RequireComponent (typeof(Transform))]
+
 public class PlayerLogic : MonoBehaviour {
 
 	public Transform[] thingsThatMakePanic;
@@ -23,16 +23,22 @@ public class PlayerLogic : MonoBehaviour {
 
 		}else if(thingsThatMakePanic[0] == null){
 			Debug.LogError("Please assign at least an enemy object");
+		}else{
+			distance = new float[thingsThatMakePanic.Length];
+
+
 		}
-		distance = new float[thingsThatMakePanic.Length];
+
 
 
 	}
+
+
 	
 	// Update is called once per frame
 	void Update () {
 		for(int i = 0; i < thingsThatMakePanic.Length; i++){
-			distance[i] = Vector2.Distance(thingsThatMakePanic[i],player);
+			distance[i] = Vector2.Distance(makeVector3To2(thingsThatMakePanic[i]),makeVector3To2(player));
 			
 			
 			if(distance[i] <= triggerDistance){
@@ -50,7 +56,15 @@ public class PlayerLogic : MonoBehaviour {
   
 		}
 
-	int doPanic (int height){
+	Vector2 makeVector3To2(Transform t){
+
+		return new Vector2(t.position.x,t.position.y);
+
+	}
+
+
+
+	void doPanic (int height){
 		if (istNaheMonster == true) {
 			panikLevel = panikLevel - height;
 			
