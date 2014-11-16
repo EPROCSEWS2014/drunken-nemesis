@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent (typeof(Transform))]
 public class PlayerLogic : MonoBehaviour {
 
 	public Transform[] thingsThatMakePanic;
@@ -21,7 +22,7 @@ public class PlayerLogic : MonoBehaviour {
 			Debug.LogError("Please assign a player object");
 
 		}else if(thingsThatMakePanic[0] == null){
-			Debug.LogError("Please assign at least a enemy object");
+			Debug.LogError("Please assign at least an enemy object");
 		}
 		distance = new float[thingsThatMakePanic.Length];
 
