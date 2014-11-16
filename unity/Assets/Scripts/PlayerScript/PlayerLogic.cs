@@ -3,6 +3,9 @@ using System.Collections;
 
 public class PlayerLogic : MonoBehaviour {
 
+	public Transform[] testing;
+
+
 	// Use this for initialization
 	void Start () {
 	
