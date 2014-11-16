@@ -10,12 +10,10 @@ public class PlayerLogic : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-<<<<<<< HEAD
 		int panikLevel = 100;
 		int panikLevel_max = 100;
 		boolean istNaheMonster;
 	
-=======
 
 		if(player == null) {
 			Debug.LogError("Please assign a player object");
@@ -24,8 +22,7 @@ public class PlayerLogic : MonoBehaviour {
 			Debug.LogError("Please assign at least a enemy object");
 		}
 		distance = new float[thingsThatMakePanic.Length];
-
->>>>>>> origin/master
+		
 	}
 	
 	// Update is called once per frame
@@ -67,7 +64,6 @@ public class PlayerLogic : MonoBehaviour {
 			case 0 : //
 
 		}
-=======
 		for(int i = 0; i < thingsThatMakePanic.Length; i++){
 			distance[i] = Vector2.Distance(thingsThatMakePanic[i],player);
 
@@ -84,8 +80,6 @@ public class PlayerLogic : MonoBehaviour {
 		}
 
 	}
-
->>>>>>> origin/master
 
 
 }
