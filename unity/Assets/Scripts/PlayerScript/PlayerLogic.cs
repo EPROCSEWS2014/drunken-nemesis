@@ -10,7 +10,6 @@ public class PlayerLogic : MonoBehaviour {
 
 	float distance;
 	int panikLevel = 100;
-	int panikLevelmax = 100;
 	bool istNaheMonster;
 
 	// Use this for initialization
@@ -67,42 +66,40 @@ public class PlayerLogic : MonoBehaviour {
 
 
 
-	void doPanic (int height){
-		if (istNaheMonster == true) {
-			panikLevel = panikLevel - height;
-			
-		} else {
-			if (panikLevel == panikLevelmax) {
-				Debug.Log("Vitality Full");
-				
-			} else {
-				panikLevel = panikLevel + height;
-				
-				
-				
-			}
+	void decreaseSanity (int height){
+				panikLevel = panikLevel - height;
+				if (panikLevel == 0) {
+						Debug.Log ("PANIK!!!");
+				} else {
+						if (panikLevel == 100) {
+								Debug.Log ("Vollständige Vitalität!");
+						} else {
+								if (panikLevel + height > 100 || panikLevel - height < 0) {
+										Debug.LogError ("Geht nicht, gibts nicht!");
+								}
+						}
+				}
 		}
-
-		switch (panikLevel){
-		case 100 : //Keine Änderung
-			break;
+		
+	    switch (panikLevel){
 		case 50 : //Veränderte Sicht , Blur
 			break;
-		case 40 : //
+		case 40 : //Einschränkungen in der Bewegung
 			break;
-		case 30 : //
+		case 30 : //Schwere Atmung, Geräusche
 			break;
-		case 20 : //
+		case 20 : //Halluzinationen , Scheinmonster
 			break;
-		case 10 : //
+		case 10 : //Verfolgungswahn, Kontrollverlust
 			break;
-		case 0 : //
+		case 0 : //Absolute Panik
 			break;
 		}
 
+		}
 
-
-
+	void regainSanity (int height){
+			decreaseSanity(-height);
 		}
 
 	}
