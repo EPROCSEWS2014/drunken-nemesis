@@ -3,19 +3,34 @@ using System.Collections;
 
 public class PlayerLogic : MonoBehaviour {
 
-	public Transform[] testing;
-
+	public Transform[] thingsThatMakePanic;
+	float[] distance;
+	public Transform player;
+	public int triggerDistance;
 
 	// Use this for initialization
 	void Start () {
+<<<<<<< HEAD
 		int panikLevel = 100;
 		int panikLevel_max = 100;
 		boolean istNaheMonster;
 	
+=======
+
+		if(player == null) {
+			Debug.LogError("Please assign a player object");
+
+		}else if(thingsThatMakePanic[0] == null){
+			Debug.LogError("Please assign at least a enemy object");
+		}
+		distance = new float[thingsThatMakePanic.Length];
+
+>>>>>>> origin/master
 	}
 	
 	// Update is called once per frame
 	void Update () {
+<<<<<<< HEAD
 
 
 	
@@ -52,6 +67,25 @@ public class PlayerLogic : MonoBehaviour {
 			case 0 : //
 
 		}
+=======
+		for(int i = 0; i < thingsThatMakePanic.Length; i++){
+			distance[i] = Vector2.Distance(thingsThatMakePanic[i],player);
+
+
+			if(distance[i] <= triggerDistance){
+
+				istNaheMonster = true;
+
+			}else if(i+1 == thingsThatMakePanic.Length){
+
+				istNaheMonster = false;
+			}
+
+		}
+
+	}
+
+>>>>>>> origin/master
 
 
 }
