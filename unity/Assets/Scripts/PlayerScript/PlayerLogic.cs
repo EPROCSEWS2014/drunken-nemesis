@@ -79,24 +79,25 @@ public class PlayerLogic : MonoBehaviour {
 								}
 						}
 				}
-		}
+
 		
-	    switch (panikLevel){
-		case 50 : //Veränderte Sicht , Blur
-			break;
-		case 40 : //Einschränkungen in der Bewegung
-			break;
-		case 30 : //Schwere Atmung, Geräusche
-			break;
-		case 20 : //Halluzinationen , Scheinmonster
-			break;
-		case 10 : //Verfolgungswahn, Kontrollverlust
-			break;
-		case 0 : //Absolute Panik
-			break;
+				switch (panikLevel) {
+				case 50: //Veränderte Sicht , Blur
+						break;
+				case 40: //Einschränkungen in der Bewegung
+						break;
+				case 30: //Schwere Atmung, Geräusche
+						break;
+				case 20: //Halluzinationen , Scheinmonster
+						break;
+				case 10: //Verfolgungswahn, Kontrollverlust
+						break;
+				case 0: //Absolute Panik
+						break;
+				}
 		}
 
-		}
+		
 
 	void regainSanity (int height){
 			decreaseSanity(-height);
