@@ -1,13 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class NewBehaviourScript : MonoBehaviour {
-<<<<<<< HEAD
-	String marc = "Penis";
-=======
-	string dennis = "Test";
-
->>>>>>> origin/master
+public class PlayerLogic : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
