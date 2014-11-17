@@ -15,6 +15,8 @@ public class PlayerLogic : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
+
+
 		if(player == null) {
 			Debug.LogError("Please assign a player object");
 
@@ -25,6 +27,7 @@ public class PlayerLogic : MonoBehaviour {
 
 
 		}
+
 
 
 	}
@@ -58,6 +61,7 @@ public class PlayerLogic : MonoBehaviour {
 	Vector2 makeVector3To2(Transform t){
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 		for(int i = 0; i < thingsThatMakePanic.Length; i++){
 			distance[i] = Vector2.Distance(thingsThatMakePanic[i],player);
 
@@ -80,6 +84,9 @@ public class PlayerLogic : MonoBehaviour {
 =======
 		return new Vector2(t.position.x,t.position.y);
 >>>>>>> origin/Player
+=======
+		return new Vector2(t.position.x,t.position.y);
+>>>>>>> f677553892d239d94ec9b8d80c18b427e9ccb977
 
 	}
 
@@ -126,4 +133,5 @@ public class PlayerLogic : MonoBehaviour {
 
 
 
-}
+
+
