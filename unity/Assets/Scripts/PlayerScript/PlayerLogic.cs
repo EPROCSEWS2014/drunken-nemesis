@@ -4,21 +4,23 @@ using System.Collections;
 
 public class PlayerLogic : MonoBehaviour {
 	
-	public Transform[] thingsThatMakePanic;
+	public Transform thingsThatMakePanic;
 	public Transform player;
 	public int triggerDistance = 5;
+	public int panicCap = 100;
 	
+	int panikLevel;
+
 	float distance;
-	int panikLevel = 100;
 	bool istNaheMonster;
 	
 	// Use this for initialization
 	void Start () {
-		
+		panikLevel = panicCap;
 		if(player == null) {
 			Debug.LogError("Please assign a player object");
 			
-		}else if(thingsThatMakePanic[0] == null){
+		}else if(thingsThatMakePanic.GetChild(0) == null){
 			Debug.LogError("Please assign at least an enemy object");
 		}else{
 			
@@ -33,9 +35,9 @@ public class PlayerLogic : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		for(int i = 0; i < thingsThatMakePanic.Length; i++){
+		for(int i = 0; i < thingsThatMakePanic.childCount; i++){
 		
-			distance = Vector2.Distance(makeVector3To2(thingsThatMakePanic[i]),makeVector3To2(player));
+			distance = Vector2.Distance(makeVector3To2(thingsThatMakePanic.GetChild(i)),makeVector3To2(player));
 			//Debug.Log("Distance of Index " + i + " " + distance);
 			if(distance < triggerDistance){
 
@@ -67,18 +69,27 @@ public class PlayerLogic : MonoBehaviour {
 		
 		
 		void decreaseSanity (int height){
-			panikLevel = panikLevel - height;
+		bool maxCapReached = (panikLevel - height > 100);
+		bool minCapReached = (panikLevel - height < 0);
+		if (!(maxCapReached | minCapReached)) {
+					
+						panikLevel = panikLevel - height;
+				} else if (maxCapReached) {
+			panikLevel = 100;
+
+				} else if (minCapReached) {
+			panikLevel = 0;
+				}
 			if (panikLevel == 0) {
 				Debug.Log ("PANIK!!!");
-			} else {
-				if (panikLevel == 100) {
-					Debug.Log ("Vollständige Vitalität!");
-				} else {
-					if (panikLevel + height > 100 || panikLevel - height < 0) {
-						Debug.LogError ("Geht nicht, gibts nicht!");
-					}
+		} else if (panikLevel == 100) {
+				
+					Debug.Log ("Vollständige Geistige Gesundheit!");
+
+
 				}
-			}
+
+			
 			
 			
 			switch (panikLevel) {
