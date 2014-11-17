@@ -1,16 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[RequireComponent (typeof(Transform))]
+
 public class PlayerLogic : MonoBehaviour {
 
 	public Transform[] thingsThatMakePanic;
 	public Transform player;
-	public int triggerDistance;
+	public int triggerDistance = 5;
 
-	float[] distance;
+	float distance;
 	int panikLevel = 100;
-	int panikLevelmax = 100;
 	bool istNaheMonster;
 
 	// Use this for initialization
@@ -21,48 +20,44 @@ public class PlayerLogic : MonoBehaviour {
 
 		}else if(thingsThatMakePanic[0] == null){
 			Debug.LogError("Please assign at least an enemy object");
+		}else{
+		
+
+
 		}
-		distance = new float[thingsThatMakePanic.Length];
+
 
 	}
+
+
 	
 	// Update is called once per frame
 	void Update () {
 		for(int i = 0; i < thingsThatMakePanic.Length; i++){
-			distance[i] = Vector2.Distance(thingsThatMakePanic[i],player);
+			distance = Vector2.Distance(makeVector3To2(thingsThatMakePanic[i]),makeVector3To2(player));
 			
-			
-			if(distance[i] <= triggerDistance){
-				
-				istNaheMonster = true;
-				
-			}else if(i+1 == thingsThatMakePanic.Length){
-				
-				istNaheMonster = false;
-			}
+			if( (i+1) == thingsThatMakePanic.Length  & distance >= triggerDistance){
 
+				istNaheMonster = false;
+				Debug.Log(istNaheMonster);
+
+			}else if(distance <= triggerDistance){
+
+				istNaheMonster = true;
+
+				//Debug.Log(istNaheMonster);
+				
+			}
 
 	
 	}
+
   
 		}
 
-	int doPanic (int height){
-		if (istNaheMonster == true) {
-			panikLevel = panikLevel - height;
-			
-		} else {
-			if (panikLevel == panikLevelmax) {
-				Debug.Log("Vitality Full");
-				
-			} else {
-				panikLevel = panikLevel + height;
-				
-				
-				
-			}
-		}
+	Vector2 makeVector3To2(Transform t){
 
+<<<<<<< HEAD
 		for(int i = 0; i < thingsThatMakePanic.Length; i++){
 			distance[i] = Vector2.Distance(thingsThatMakePanic[i],player);
 
@@ -82,10 +77,49 @@ public class PlayerLogic : MonoBehaviour {
 		case 0 : //
 			break;
 		}
+=======
+		return new Vector2(t.position.x,t.position.y);
+>>>>>>> origin/Player
+
+	}
 
 
 
+	void decreaseSanity (int height){
+				panikLevel = panikLevel - height;
+				if (panikLevel == 0) {
+						Debug.Log ("PANIK!!!");
+				} else {
+						if (panikLevel == 100) {
+								Debug.Log ("Vollständige Vitalität!");
+						} else {
+								if (panikLevel + height > 100 || panikLevel - height < 0) {
+										Debug.LogError ("Geht nicht, gibts nicht!");
+								}
+						}
+				}
 
+		
+				switch (panikLevel) {
+				case 50: //Veränderte Sicht , Blur
+						break;
+				case 40: //Einschränkungen in der Bewegung
+						break;
+				case 30: //Schwere Atmung, Geräusche
+						break;
+				case 20: //Halluzinationen , Scheinmonster
+						break;
+				case 10: //Verfolgungswahn, Kontrollverlust
+						break;
+				case 0: //Absolute Panik
+						break;
+				}
+		}
+
+		
+
+	void regainSanity (int height){
+			decreaseSanity(-height);
 		}
 
 	}
