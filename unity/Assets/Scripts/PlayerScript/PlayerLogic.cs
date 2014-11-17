@@ -34,23 +34,24 @@ public class PlayerLogic : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		for(int i = 0; i < thingsThatMakePanic.Length; i++){
+		
 			distance = Vector2.Distance(makeVector3To2(thingsThatMakePanic[i]),makeVector3To2(player));
-			
-			if( (i+1) == thingsThatMakePanic.Length  & distance >= triggerDistance){
-				
-				istNaheMonster = false;
-				Debug.Log(istNaheMonster);
-				
-			}else if(distance <= triggerDistance){
-				
-				istNaheMonster = true;
-				
+			//Debug.Log("Distance of Index " + i + " " + distance);
+			if(distance < triggerDistance){
+
+			istNaheMonster = true;
+				break;
+
 				//Debug.Log(istNaheMonster);
 				
+			}else{
+				istNaheMonster = false;
 			}
 			
-			
 		}
+
+		Debug.Log (istNaheMonster);
+	
 		
 		
 	}
