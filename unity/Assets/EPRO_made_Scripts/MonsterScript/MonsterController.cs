@@ -1,44 +1,57 @@
 ﻿using UnityEngine;
 
-public class MonsterController : MonoBehaviour 
+public class MonsterController : MonoBehaviour
 {
-	public float speed = 10;
+		public float speed = 10;
+		Vector2 playerPosition;
+		float distance;
+		LayerMask whatIsGround;
+		Transform groundCheck;
+		float groundedRadius = .2f;
+		bool grounded = false;
+		bool facingRight = true;
+		Transform ceilingCheck;
+		float ceilingRadius = .01f;
+		Animator anim;
 
-	private PlatformerCharacter2D monster;
-	private Vector2 playerPosition;
-	private float distance;
+		void Awake ()
+		{
+				groundCheck = transform.Find ("GroundCheck");
+				ceilingCheck = transform.Find ("CeilingCheck");
+				anim = GetComponent<Animator> ();
+		}
 	
-	Transform groundCheck;								
-	float groundedRadius = .2f;							
-	bool grounded = false;								
-	Transform ceilingCheck;								
-	float ceilingRadius = .01f;							
-	Animator anim;	
+		void Update ()
+		{
+				playerPosition = GameObject.Find ("2D Character").transform.position;
+				distance = playerPosition.x - transform.position.x;
 
-	void Awake()
-	{
-		monster = GetComponent<PlatformerCharacter2D>();
-		groundCheck = transform.Find("GroundCheck");
-		ceilingCheck = transform.Find("CeilingCheck");
-		anim = GetComponent<Animator>();
-	}
+				if (distance >= 0) {
+						rigidbody2D.velocity = new Vector2 (speed, rigidbody2D.velocity.y);
+						if (!facingRight)
+								Flip ();
+				} else {
+						rigidbody2D.velocity = new Vector2 (-speed, rigidbody2D.velocity.y);
+						if (facingRight)
+								Flip ();
+				}
+				anim.SetFloat ("Speed", speed);
+
+		}
 	
-	void Update ()
-	{
-		playerPosition = GameObject.Find("2D Character").transform.position;
-		distance = playerPosition.x - transform.position.x;
+		void FixedUpdate ()
+		{
+				grounded = Physics2D.OverlapCircle (groundCheck.position, groundedRadius, whatIsGround);
+				anim.SetBool ("Ground", grounded);
+				anim.SetFloat ("vSpeed", rigidbody2D.velocity.y);
+		}
 
-		if (distance >= 0)
-			rigidbody2D.velocity = new Vector2(speed, 0);
-		else
-			rigidbody2D.velocity = new Vector2(-speed, 0);
+		void Flip ()
+		{
+				facingRight = !facingRight;
 
-	}
-	
-	void FixedUpdate()
-	{
-		anim.SetBool("Ground", grounded);
-		anim.SetFloat("vSpeed", rigidbody2D.velocity.y);
-
-	}
+				Vector3 theScale = transform.localScale;
+				theScale.x *= -1;
+				transform.localScale = theScale;
+		}
 }
