@@ -459,7 +459,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 725743628}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.4962816, y: 2.17471957, z: 93.2332611}
+  m_LocalPosition: {x: .551425457, y: 2.17471981, z: 93.2332611}
   m_LocalScale: {x: 8.81563759, y: 7.34635258, z: 1}
   m_Children: []
   m_Father: {fileID: 1731440635}
@@ -624,7 +624,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 87a2357765801c34292d6718d8b4d770, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 6.23624134
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 87a2357765801c34292d6718d8b4d770, type: 2}
       propertyPath: m_LocalPosition.y
@@ -632,7 +632,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 2000000, guid: 87a2357765801c34292d6718d8b4d770, type: 2}
       propertyPath: orthographic size
-      value: 5.32356977
+      value: 4.21956396
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11400004, guid: 87a2357765801c34292d6718d8b4d770, type: 2}
@@ -1030,7 +1030,7 @@ GameObject:
   - 4: {fileID: 1341352537}
   m_Layer: 0
   m_Name: EnemyContainer
-  m_TagString: Untagged
+  m_TagString: EnemyC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1042,7 +1042,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1341352536}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .599489272, y: 6.69253969, z: 0}
+  m_LocalPosition: {x: 0, y: 6.69253969, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1111322194}
@@ -1331,7 +1331,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.32356977
+  orthographic size: 4.21956396
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1350,7 +1350,7 @@ Transform:
   m_PrefabInternal: {fileID: 962275289}
   m_GameObject: {fileID: 1731440630}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.23624134, y: -.180962726, z: -50}
+  m_LocalPosition: {x: 0, y: -.180962726, z: -50}
   m_LocalScale: {x: .564482868, y: .564483702, z: 1}
   m_Children:
   - {fileID: 725743630}
@@ -1582,7 +1582,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4e02ef047bab0e43a481ca086cfad86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thingsThatMakePanic: {fileID: 1341352537}
-  player: {fileID: 1997664660}
+  maximumSanity: 1000
+  minimumSanity: 0
+  sanityDrain: 10
+  divisor: 20
   triggerDistance: 5
-  panicCap: 100
