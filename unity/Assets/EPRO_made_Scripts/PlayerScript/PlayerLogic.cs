@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+//using PlayerStamina;
 
 
 public class PlayerLogic : MonoBehaviour {
@@ -16,6 +17,8 @@ public class PlayerLogic : MonoBehaviour {
 		private	float 	sanityRegen;
 		public	int 	divisor = 10;
 		private	bool 	isNearToMonster;
+		private float 	exhaustion;
+
 			
 		//Attributes only concerning the EnemyFinding Algorithm
 			private	Transform 	thingsThatMakePanic; 	 	// A tranform Father, which contains all the monsters
@@ -143,7 +146,7 @@ public class PlayerLogic : MonoBehaviour {
 		
 		
 		public void regainSanity (float height){
-		bool maxCapReached = ((sanityLevel + height) > maximumSanity);
+		bool maxCapReached = ((sanityLevel + (height/* - PlayerStamina.getExhaustion()*/)) > maximumSanity);
 		if(maxCapReached){
 
 			this.sanityLevel = this.maximumSanity;
