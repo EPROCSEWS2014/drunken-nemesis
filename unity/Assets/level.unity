@@ -1489,6 +1489,7 @@ GameObject:
   - 114: {fileID: 1997664662}
   - 61: {fileID: 1997664661}
   - 114: {fileID: 1997664668}
+  - 58: {fileID: 1997664669}
   m_Layer: 8
   m_Name: 2DCharacter
   m_TagString: Player
@@ -1638,3 +1639,14 @@ MonoBehaviour:
   sanityDrain: 10
   divisor: 20
   triggerDistance: 5
+--- !u!58 &1997664669
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1997664659}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Radius: .6875
+  m_Center: {x: 0, y: 0}

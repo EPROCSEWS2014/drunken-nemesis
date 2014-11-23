@@ -4,7 +4,7 @@ public class PlatformerCharacter2D : MonoBehaviour
 {
 	bool facingRight = true;							// For determining which way the player is currently facing.
 
-	[SerializeField] float maxSpeed = 10f;				// The fastest the player can travel in the x axis.
+	[SerializeField] float walkSpeed = 10f;				// The fastest the player can travel in the x axis.
 	[SerializeField] float jumpForce = 400f;			// Amount of force added when the player jumps.	
 
 	[Range(0, 1)]
@@ -95,4 +95,7 @@ public class PlatformerCharacter2D : MonoBehaviour
 		theScale.x *= -1;
 		transform.localScale = theScale;
 	}
+	public float getWalkSpeed(){
+				return walkSpeed;
+		}
 }
