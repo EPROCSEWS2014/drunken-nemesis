@@ -7,6 +7,7 @@ public class PlayerStamina : MonoBehaviour {
 
 	public float normalSpeed;
 	public float runningSpeed;
+	public float speedUp = 1.5f;
 	public int Stamina;
 	public int maxStamina = 100;
 	public int minStamina = 1;
@@ -19,22 +20,22 @@ public class PlayerStamina : MonoBehaviour {
 	// isCharacterRunning = false;
 	// if(Input.GetKey(Running){
 	//    isCharacterRunning = true;
-	//    runningSpeed = normalSpeed * 1.5f;
+	//    runningSpeed = normalSpeed * speedUp;
 	//}
-	// if(isCharacterRunning = true){
+	// if(isCharacterRunning == true){
 	//    Stamina -= staminaDrain;
 	//    if(Stamina -= staminaDrain < 1){
 	//       Stamina = minStamina;
 	//    }
 	// } else {
-	// if(isCharacterRunning = false){
-	//    staminaRegen(Stamina);
+	// if(isCharacterRunning == false){
+	//    Stamina = staminaRegen();
 	//}
 	//}
 	//
-	//public static int staminaRegen(int Stamina){
+	//public static int staminaRegen(){
 	//     staminaRegenaration = staminaDrain * Math.Random(0.3f, 0.8f);
-	//     float new_Stamina = Stamina + staminaRegenaration
+	//     float new_Stamina = Stamina + staminaRegenaration;
 	//  if(new_Stamina > maxStamina){
 	//     new_Stamina = maxStamina;
 	//  }
