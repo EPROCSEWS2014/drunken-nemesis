@@ -64,7 +64,7 @@ public class PlatformerCharacter2D : MonoBehaviour
 			anim.SetFloat("Speed", Mathf.Abs(move));
 
 			// Move the character
-			rigidbody2D.velocity = new Vector2(move * maxSpeed, rigidbody2D.velocity.y);
+			rigidbody2D.velocity = new Vector2(move * walkSpeed, rigidbody2D.velocity.y);
 			
 			// If the input is moving the player right and the player is facing left...
 			if(move > 0 && !facingRight)
@@ -95,7 +95,8 @@ public class PlatformerCharacter2D : MonoBehaviour
 		theScale.x *= -1;
 		transform.localScale = theScale;
 	}
-	public float getWalkSpeed(){
+	public float getWalkSpeed()
+	{
 				return walkSpeed;
 		}
 }
