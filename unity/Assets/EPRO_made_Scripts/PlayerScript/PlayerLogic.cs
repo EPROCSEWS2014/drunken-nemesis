@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
-using System.Collections;
-//using PlayerStamina;
+using System.Collection;
+
 
 
 public class PlayerLogic : MonoBehaviour {
@@ -18,6 +18,17 @@ public class PlayerLogic : MonoBehaviour {
 		public	int 	divisor = 10;
 		private	bool 	isNearToMonster;
 		private float 	exhaustion;
+		
+
+		//For the switch-case statement which triggers at specific panic levels
+			
+		private int secondWorst = maximumSanity/5;
+		private int thirdWorst = secondWorst *2;
+		private int forthWorst = secondWorst *3;
+		private int fithWorst = secondWorst * 4;
+
+
+
 
 			
 		//Attributes only concerning the EnemyFinding Algorithm
@@ -103,7 +114,7 @@ public class PlayerLogic : MonoBehaviour {
 		
 		public void decreaseSanity (float height){
 		bool minCapReached = ((sanityLevel - height) < minimumSanity);
-		Debug.Log(sanityLevel);
+
 		if (minCapReached) {
 			this.sanityLevel = minimumSanity;}
 		else{
@@ -128,17 +139,17 @@ public class PlayerLogic : MonoBehaviour {
 			
 			
 			switch (Mathf.RoundToInt(sanityLevel)) {
-			case 50: //Veränderte Sicht , Blur
+			case maximumSanity: //Veränderte Sicht , Blur
 				break;
-			case 40: //Einschränkungen in der Bewegung
+			case fithWorst: //Einschränkungen in der Bewegung
 				break;
-			case 30: //Schwere Atmung, Geräusche
+			case forthWorst: //Schwere Atmung, Geräusche
 				break;
-			case 20: //Halluzinationen , Scheinmonster
+			case thirdWorst: //Halluzinationen , Scheinmonster
 				break;
-			case 10: //Verfolgungswahn, Kontrollverlust
+			case secondWorst: //Verfolgungswahn, Kontrollverlust
 				break;
-			case 0: //Absolute Panik
+			case minimumSanity: //Absolute Panik
 				break;
 			}
 		}
@@ -146,13 +157,13 @@ public class PlayerLogic : MonoBehaviour {
 		
 		
 		public void regainSanity (float height){
-		bool maxCapReached = ((sanityLevel + (height/* - PlayerStamina.getExhaustion()*/)) > maximumSanity);
+		bool maxCapReached = ((sanityLevel + (height - PlayerStamina.getExhaustion())) > maximumSanity);
 		if(maxCapReached){
 
 			this.sanityLevel = this.maximumSanity;
 
 		}else{
-			this.decreaseSanity(-height);
+			this.decreaseSanity(-(height - PlayerStamina.getExhaustion()));
 
 		}
 		}

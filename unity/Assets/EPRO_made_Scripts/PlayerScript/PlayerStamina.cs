@@ -42,11 +42,15 @@ public class PlayerStamina : MonoBehaviour {
 //	  return new_Stamina;
 //	}
 
+	public int getExhaustion(){
+		return (this.maxStamina - this.Stamina);
+	}
+
 	public int getStamina(){
-				return Stamina;
+				return this.Stamina;
 		}
 
 	public int getMaxStamina(){
-				return maxStamina;
+				return this.maxStamina;
 		}
 }
