@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collection;
 
 
 
@@ -11,8 +10,8 @@ public class PlayerLogic : MonoBehaviour {
 	//Everything relating to the panicMethods
 
 		private float 	sanityLevel;  // The sanity level
-		public 	int 	maximumSanity = 1000;	
-		public 	int 	minimumSanity = 0;
+		public  	int 	maximumSanity = 1000;	
+		public  	int 	minimumSanity = 0;
 		public 	float 	sanityDrain = 100;
 		private	float 	sanityRegen;
 		public	int 	divisor = 10;
@@ -22,10 +21,10 @@ public class PlayerLogic : MonoBehaviour {
 
 		//For the switch-case statement which triggers at specific panic levels
 			
-		private int secondWorst = maximumSanity/5;
-		private int thirdWorst = secondWorst *2;
-		private int forthWorst = secondWorst *3;
-		private int fithWorst = secondWorst * 4;
+		private  int secondWorst;
+		private  int thirdWorst;
+		private  int forthWorst;
+		private  int fithWorst;
 
 
 
@@ -44,7 +43,11 @@ public class PlayerLogic : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		this.sanityLevel = this.maximumSanity; 
+			secondWorst = maximumSanity/5;
+			thirdWorst = secondWorst *2;
+			forthWorst = secondWorst *3;
+			fithWorst = secondWorst * 4;
+		this.sanityLevel = maximumSanity; 
 		this.sanityRegen = (sanityDrain/divisor); // Calculates the Regeneration of the Sanity
 		this.player = this.transform; // Returns the Player Transform
 		this.thingsThatMakePanic = GameObject.FindWithTag("EnemyC").transform;
@@ -123,7 +126,7 @@ public class PlayerLogic : MonoBehaviour {
 
 		}
 
-	//	Debug.Log(panicLevel);
+
 
 
 			if (sanityLevel == minimumSanity) {
@@ -138,32 +141,32 @@ public class PlayerLogic : MonoBehaviour {
 			
 			
 			
-			switch (Mathf.RoundToInt(sanityLevel)) {
-			case maximumSanity: //Veränderte Sicht , Blur
-				break;
-			case fithWorst: //Einschränkungen in der Bewegung
-				break;
-			case forthWorst: //Schwere Atmung, Geräusche
-				break;
-			case thirdWorst: //Halluzinationen , Scheinmonster
-				break;
-			case secondWorst: //Verfolgungswahn, Kontrollverlust
-				break;
-			case minimumSanity: //Absolute Panik
-				break;
-			}
+//			switch (Mathf.RoundToInt(sanityLevel)) {
+//			case maximumSanity: //Veränderte Sicht , Blur
+//				break;
+//			case fithWorst: //Einschränkungen in der Bewegung
+//				break;
+//			case forthWorst: //Schwere Atmung, Geräusche
+//				break;
+//			case thirdWorst: //Halluzinationen , Scheinmonster
+//				break;
+//			case secondWorst: //Verfolgungswahn, Kontrollverlust
+//				break;
+//			case minimumSanity: //Absolute Panik
+//				break;
+//			}
 		}
 		
 		
 		
 		public void regainSanity (float height){
-		bool maxCapReached = ((sanityLevel + (height - PlayerStamina.getExhaustion())) > maximumSanity);
+		bool maxCapReached = ((sanityLevel + (height)) > maximumSanity);
 		if(maxCapReached){
 
 			this.sanityLevel = this.maximumSanity;
 
 		}else{
-			this.decreaseSanity(-(height - PlayerStamina.getExhaustion()));
+			this.decreaseSanity(-(height));
 
 		}
 		}
