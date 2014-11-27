@@ -19,6 +19,7 @@ public class MonsterController : MonoBehaviour
 				groundCheck = transform.Find ("GroundCheck");
 				ceilingCheck = transform.Find ("CeilingCheck");
 				anim = GetComponent<Animator> ();
+
 		}
 	
 		void Update ()
@@ -53,5 +54,12 @@ public class MonsterController : MonoBehaviour
 				Vector3 theScale = transform.localScale;
 				theScale.x *= -1;
 				transform.localScale = theScale;
+				Spawn (new Vector2 (0, 0));
+		}
+
+		void Spawn (Vector2 Position)
+		{
+				gameObject.SetActive (true);
+				transform.position = Position;
 		}
 }
