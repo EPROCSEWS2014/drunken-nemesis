@@ -3,37 +3,46 @@ using System.Collections;
 
 public class LightCameraFollow : MonoBehaviour {
 
-	public float xPosition = -2;
+	public float positionX;
+	public float positionY;
 	private Transform player;
-	private Transform rota;
-	private Transform rotb;
+	private bool boolean = true;
 
 
 	void Awake () {
 		player = GameObject.FindGameObjectWithTag("Player").transform;
-		rota = GameObject.FindGameObjectWithTag("rota").transform;
-		rotb = GameObject.FindGameObjectWithTag("rotb").transform;
 	}
 	
 	
 	void Update () {
 		Track();
-		float scale = player.localScale.x;
+	}
+
+	bool CheckRight () {
+		return Input.GetKeyDown (KeyCode.D) && !boolean;
+	}
+	bool CheckLeft () {
+		return Input.GetKeyDown (KeyCode.A) && boolean;
 	}
 
 	void Track () {
-		float targetX = player.position.x + xPosition;
-		float targetY = player.position.y;
-
+		float targetX = player.position.x + positionX;
+		float targetY = player.position.y - positionY;
 		float scale = player.localScale.x;
+		Vector3 vectora = new Vector3 (0, 240, 0);
+		Vector3 vectorb = new Vector3 (0, 120, 0);
 
-		if (scale > 0) {
-			transform.rotation = rota.rotation;
-			xPosition = -2;
+		if (CheckRight ()) {
+			transform.rotation = new Quaternion(0,0.5f,0,0);
+			transform.Rotate(vectora);
+			positionX = -2;
+			boolean = true;
 		} 
-		else {
-			transform.rotation = rotb.rotation;
-			xPosition = 2;
+		if (CheckLeft ()) {
+			transform.rotation = new Quaternion(0,0.5f,0,0);;
+			transform.Rotate(vectorb);
+			positionX = 2;
+			boolean = false;
 		}
 
 		transform.position = new Vector3(targetX, targetY, transform.position.z);
