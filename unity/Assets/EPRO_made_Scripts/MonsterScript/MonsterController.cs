@@ -13,21 +13,24 @@ public class MonsterController : MonoBehaviour
 		Transform ceilingCheck;
 		float ceilingRadius = .01f;
 		Animator anim;
+		RestartScript restart;
 
 		void Awake ()
 		{
 				groundCheck = transform.Find ("GroundCheck");
 				ceilingCheck = transform.Find ("CeilingCheck");
 				anim = GetComponent<Animator> ();
-
+				restart = GetComponent<RestartScript> ();
 		}
 	
 		void Update ()
 		{
 				playerPosition = GameObject.Find ("2D Character").transform.position;
 				distance = playerPosition.x - transform.position.x;
-
-				if (distance >= 0) {
+				if (distance == 0) {
+						restart.Restart ();
+			Debug.Log("distance 0");
+				} else if (distance > 0) {
 						rigidbody2D.velocity = new Vector2 (speed, rigidbody2D.velocity.y);
 						if (!facingRight)
 								Flip ();
@@ -54,7 +57,6 @@ public class MonsterController : MonoBehaviour
 				Vector3 theScale = transform.localScale;
 				theScale.x *= -1;
 				transform.localScale = theScale;
-				Spawn (new Vector2 (0, 0));
 		}
 
 		void Spawn (Vector2 Position)
