@@ -250,7 +250,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 100129357}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.09474635, y: .972446442, z: -2.51365662}
+  m_LocalPosition: {x: 0, y: 1, z: -3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -668,7 +668,7 @@ GameObject:
   - 4: {fileID: 830258335}
   - 108: {fileID: 830258334}
   - 114: {fileID: 830258336}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Spot light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1025,7 +1025,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1238505981}
   - 212: {fileID: 1238505980}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: baumsprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
