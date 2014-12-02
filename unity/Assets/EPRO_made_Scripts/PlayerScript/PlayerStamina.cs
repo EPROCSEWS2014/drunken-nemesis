@@ -2,55 +2,68 @@ using UnityEngine;
 using System.Collections;
 
 public class PlayerStamina : MonoBehaviour {
-	
-	//[SerializeField] KeyCode Running;
-	
+
 	private float normalSpeed;
 	private float runningSpeed;
 	private float speedUp = 1.5f;
-	private int Stamina;
-	private int maxStamina = 100;
-	private int minStamina = 1;
+	private float Stamina;
+	private float maxStamina = 100;
+	private float minStamina = 1;
 	private float staminaDrain = 10;
 	private float staminaRegenaration;
 	private bool isCharacterRunning;
+
+	private PlatformerCharacter2D pc2d;
+
+	void Awake (){
+				pc2d = GetComponent<PlatformerCharacter2D> ();
+		normalSpeed = pc2d.getWalkSpeed ();
+		}
+
+	    public void runningStam () {
+					isCharacterRunning = false;
+					if (Input.GetKeyDown(KeyCode.V)) {
+							isCharacterRunning = true;
+							runningSpeed = normalSpeed * speedUp;
+					}
+					if (isCharacterRunning == true) {
+							Stamina -= staminaDrain;
+				            normalSpeed = runningSpeed;
+			                
+							if ((Stamina -= staminaDrain) < 1) {
+									Stamina = minStamina;
+							}
+					} else {
+							if (isCharacterRunning == false) {
+									Stamina = staminaRegen ();
+							}
+					}
+			}
+		
+	public float staminaRegen(){
+			staminaRegenaration = staminaDrain * 0.8f;
+		     float new_Stamina = Stamina + staminaRegenaration;
+		  if(new_Stamina > maxStamina){
+		     new_Stamina = maxStamina;
+		  }
+    return new_Stamina;
+	}
 	
-	//    public void runningStam () {
-	//				isCharacterRunning = false;
-	//				if (Input.GetKey ('V')) {
-	//						isCharacterRunning = true;
-	//						runningSpeed = normalSpeed * speedUp;
-	//				}
-	//				if (isCharacterRunning == true) {
-	//						Stamina -= staminaDrain;
-	//						if (Stamina -= staminaDrain < 1) {
-	//								Stamina = minStamina;
-	//						}
-	//				} else {
-	//						if (isCharacterRunning == false) {
-	//								Stamina = staminaRegen ();
-	//						}
-	//				}
-	//		}
-	//	
-	//	public int staminaRegen(){
-	//	     staminaRegenaration = staminaDrain * Random.Range(0.3f,0.8f);
-	//	     float new_Stamina = Stamina + staminaRegenaration;
-	//	  if(new_Stamina > maxStamina){
-	//	     new_Stamina = maxStamina;
-	//	  }
-	//	  return new_Stamina;
-	//	}
-	
-	public int getExhaustion(){
+	public float getExhaustion(){
 		return (this.maxStamina - this.Stamina);
 	}
 	
-	public int getStamina(){
+	public float getStamina(){
 		return this.Stamina;
 	}
 	
-	public int getMaxStamina(){
+	public float getMaxStamina(){
 		return this.maxStamina;
 	}
+	void Update() {
+				runningStam();
+				Debug.Log (Stamina);
+		}
+
+
 }
