@@ -1187,7 +1187,7 @@ MonoBehaviour:
   LevelToChange: TestRaum
   LoadLevelOnTouch: 
   LoadLevelOnReturn: hgf
-  doorOpen: {fileID: 0}
+  doorOpen: {fileID: 8300000, guid: 74ca6935544a1fc46b9688eeda944e61, type: 3}
 --- !u!61 &1332228597
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1829,7 +1829,7 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 4294966527
-  jumpUp: {fileID: 0}
+  jumpUp: {fileID: 8300000, guid: 9f18100591f280341af8cb752b4ef27e, type: 3}
 --- !u!50 &1997664664
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -2047,6 +2047,10 @@ Prefab:
       propertyPath: orthographic size
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 87a2357765801c34292d6718d8b4d770, type: 2}
+      propertyPath: jumpUp
+      value: 
+      objectReference: {fileID: 8300000, guid: 9f18100591f280341af8cb752b4ef27e, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 87a2357765801c34292d6718d8b4d770, type: 2}
   m_RootGameObject: {fileID: 1997664659}
