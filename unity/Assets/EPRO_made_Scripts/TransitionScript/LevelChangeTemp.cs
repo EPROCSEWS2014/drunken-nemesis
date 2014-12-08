@@ -13,7 +13,7 @@ public class LevelChangeTemp : MonoBehaviour {
 
     public AudioClip doorOpen;
 
-	void Start()
+	void ReAssign()
 	{
 		player = GameObject.FindWithTag("Player").transform;
 		Door = GameObject.FindWithTag(DoorTagToTeleport).transform;
@@ -21,12 +21,9 @@ public class LevelChangeTemp : MonoBehaviour {
 
 	void Awake()
 	{
-		if (DoorTagToTeleport == DoorTagToTeleport) {
-					Start ();
+		if (DoorTagToTeleport != "") {
+					ReAssign ();
 					player.transform.position = Door.transform.position;
-		
-				} else {
-					Start ();
 				}
 	}
 
