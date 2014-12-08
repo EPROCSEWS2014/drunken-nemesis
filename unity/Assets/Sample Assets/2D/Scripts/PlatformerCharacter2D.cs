@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class PlatformerCharacter2D : MonoBehaviour 
 {
@@ -20,6 +21,8 @@ public class PlatformerCharacter2D : MonoBehaviour
 	float ceilingRadius = .01f;							// Radius of the overlap circle to determine if the player can stand up
 	Animator anim;										// Reference to the player's animator component.
 
+    //WB
+    public AudioClip jumpUp;
 
     void Awake()
 	{
@@ -54,6 +57,27 @@ public class PlatformerCharacter2D : MonoBehaviour
 		// Set whether or not the character is crouching in the animator
 		anim.SetBool("Crouch", crouch);
 
+        //WB
+        if (grounded)
+        {
+            //audio.volume = 1f;
+            //audio.pitch = 1.4f;
+
+            if (move != 0)
+            {
+                audio.mute = false;
+
+            }
+            else
+            {
+                audio.mute = true;
+            }
+        }
+        else if (airControl)
+        {
+            audio.mute = true;
+        }
+
 		//only control the player if grounded or airControl is turned on
 		if(grounded || airControl)
 		{
@@ -81,6 +105,7 @@ public class PlatformerCharacter2D : MonoBehaviour
             // Add a vertical force to the player.
             anim.SetBool("Ground", false);
             rigidbody2D.AddForce(new Vector2(0f, jumpForce));
+            AudioSource.PlayClipAtPoint(jumpUp, transform.position, 1f);
         }
 	}
 
