@@ -904,6 +904,10 @@ Prefab:
       propertyPath: m_Layer
       value: 14
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: c309631eea5cf5a45ac8613d244bedfe, type: 2}
+      propertyPath: ObjectToHideString
+      value: Schrank 001
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c309631eea5cf5a45ac8613d244bedfe, type: 2}
   m_RootGameObject: {fileID: 1996899726}
@@ -1814,7 +1818,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ac1f205260c9b7429a52215dd4f01a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ObjectToHideString: '"OBJECT NAME"'
+  ObjectToHideString: Schrank 001
   colliderTriggers: []
 --- !u!58 &1996899732
 CircleCollider2D:
