@@ -17,7 +17,7 @@ public class LevelChangeTemp : MonoBehaviour {
 		if (DoorTagTemp!=null)
 		{
 			player = GameObject.FindWithTag ("Player").transform;
-			Door = GameObject.FindWithTag (DoorTagTemp).transform;
+			Door = GameObject.Find(DoorTagTemp).transform;
 			player.transform.position = Door.transform.position;
 		}else{
 			player = GameObject.FindWithTag ("Player").transform;

@@ -7,9 +7,6 @@ TagManager:
   - EnemyC
   - rota
   - rotb
-  - MainDoor
-  - SecondDoor
-  - 
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
@@ -55,6 +52,10 @@ TagManager:
   - name: Player
     userID: 1
     uniqueID: 1224937407
+    locked: 0
+  - name: HidingLayer
+    userID: 4
+    uniqueID: 3366565163
     locked: 0
   - name: Foreground
     userID: 3
