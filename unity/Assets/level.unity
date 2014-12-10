@@ -1232,7 +1232,6 @@ MonoBehaviour:
   LoadLevelOnTouch: 
   LoadLevelOnReturn: hgf
   DoorTagToTeleport: MainDoor
-  DoorID: 0
   doorOpen: {fileID: 8300000, guid: 74ca6935544a1fc46b9688eeda944e61, type: 3}
 --- !u!61 &1332228597
 BoxCollider2D:
