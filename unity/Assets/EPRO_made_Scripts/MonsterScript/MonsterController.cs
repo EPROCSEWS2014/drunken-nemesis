@@ -34,10 +34,8 @@ public class MonsterController : MonoBehaviour
     
     void Update()
     {
-<<<<<<< HEAD
         playerPosition = GameObject.Find("2DCharacter").transform.position;
         distance = playerPosition.x - transform.position.x;
-=======
 
     }
     
@@ -73,9 +71,8 @@ public class MonsterController : MonoBehaviour
         {
             distance = playerPosition.x - transform.position.x;
         }
-
->>>>>>> origin/master
-        if (distance > 0)
+        
+		if (distance > 0)
         {
             rigidbody2D.velocity = new Vector2(speed, rigidbody2D.velocity.y);
             if (!facingRight)

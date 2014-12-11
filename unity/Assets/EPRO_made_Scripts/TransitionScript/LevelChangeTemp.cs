@@ -6,7 +6,6 @@ public class LevelChangeTemp : MonoBehaviour {
 	public string LoadLevelOnTouch; //String to teleport with a simple touch
 	public string LoadLevelOnReturn; // String to teleport with the return-button
 	public string DoorTagToTeleport;
-<<<<<<< HEAD
 	public int DoorID;
 	int rDoorID;
 	protected Transform Door;
@@ -26,7 +25,7 @@ public class LevelChangeTemp : MonoBehaviour {
 					ReAssign ();
 					player.transform.position = Door.transform.position;
 				}
-=======
+
 	static string DoorTagTemp;
 	Transform Door;
 	Transform player;
@@ -44,7 +43,7 @@ public class LevelChangeTemp : MonoBehaviour {
 			player = GameObject.FindWithTag ("Player").transform;
 			player.transform.position = player.transform.position;
 		}
->>>>>>> origin/master
+
 	}
 
 	void OnTriggerStay2D(Collider2D touchSensor) //Need to check, who is in front of 
@@ -57,11 +56,11 @@ public class LevelChangeTemp : MonoBehaviour {
 				FadeInOut.sceneStarting = false; // set sceneStarting to false to fade out
 				Application.LoadLevel(LevelToChange); //.. change the Level to "LeveltoChange". Name "LeveltoChange" in Unity.
                 AudioSource.PlayClipAtPoint(doorOpen, transform.position, 1f);
-<<<<<<< HEAD
 
-=======
+
+
 				//Debug.Log(DoorTagTemp);
->>>>>>> origin/master
+
 			}
 
 			if (LoadLevelOnTouch!="") //Check if string LoadLevelOnTouch is not empty to..
