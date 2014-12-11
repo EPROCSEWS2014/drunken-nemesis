@@ -25,7 +25,7 @@ public class MonsterController : MonoBehaviour
     
     void Update()
     {
-        playerPosition = GameObject.Find("2D Character").transform.position;
+        playerPosition = GameObject.Find("2DCharacter").transform.position;
         distance = playerPosition.x - transform.position.x;
         if (distance > 0)
         {

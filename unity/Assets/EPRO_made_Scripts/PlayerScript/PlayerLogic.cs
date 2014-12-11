@@ -32,7 +32,7 @@ public class PlayerLogic : MonoBehaviour
 
 
     //Attributes only concerning the EnemyFinding Algorithm
-    private Transform thingsThatMakePanic; 	 	// A tranform Father, which contains all the monsters
+    private Transform thingsThatMakePanic; 	 	// A transform Father, which contains all the monsters
     public int triggerDistance = 5;		// The Distance where the Algorithm searches for Enemies
     private float distance;					// The calculated distance to the monster
 

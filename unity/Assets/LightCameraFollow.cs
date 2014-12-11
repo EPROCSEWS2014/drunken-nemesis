@@ -18,11 +18,11 @@ public class LightCameraFollow : MonoBehaviour {
 
 
 	bool CheckRight() {
-		return !(Input.GetKey (KeyCode.A));
+		return !(Input.GetKey (KeyCode.A) || Input.GetKey (KeyCode.LeftArrow));
 	}
 
 	bool CheckLeft() {
-		return !(Input.GetKey (KeyCode.D));
+		return !(Input.GetKey (KeyCode.D) || Input.GetKey (KeyCode.RightArrow));
 	}
 
 	void Track() {
