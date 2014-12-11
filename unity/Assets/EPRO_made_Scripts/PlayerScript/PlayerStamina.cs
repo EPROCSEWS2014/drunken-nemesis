@@ -9,7 +9,7 @@ public class PlayerStamina : MonoBehaviour {
 	private float Stamina;
 	private float maxStamina = 100;
 	private float minStamina = 1;
-	private float staminaDrain = 0.5f;
+	private float staminaDrain = 10;
 	private float staminaRegenaration;
 	private bool isCharacterRunning;
 
@@ -22,7 +22,7 @@ public class PlayerStamina : MonoBehaviour {
 
 	    public void runningStam () {
 					isCharacterRunning = false;
-					if (Input.GetKey(KeyCode.V)) {
+					if (Input.GetKeyDown(KeyCode.V)) {
 							isCharacterRunning = true;
 							runningSpeed = normalSpeed * speedUp;
 					}

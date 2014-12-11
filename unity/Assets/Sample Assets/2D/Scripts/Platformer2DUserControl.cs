@@ -10,6 +10,7 @@ public class Platformer2DUserControl : MonoBehaviour
 	void Awake()
 	{
 		character = GetComponent<PlatformerCharacter2D>();
+		DontDestroyOnLoad (this);
 	}
 
     void Update ()

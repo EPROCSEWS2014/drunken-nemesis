@@ -30,6 +30,7 @@ public class PlatformerCharacter2D : MonoBehaviour
 		groundCheck = transform.Find("GroundCheck");
 		ceilingCheck = transform.Find("CeilingCheck");
 		anim = GetComponent<Animator>();
+		DontDestroyOnLoad (this);
 	}
 
 
