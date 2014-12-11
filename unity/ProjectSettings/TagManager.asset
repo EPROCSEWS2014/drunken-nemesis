@@ -55,6 +55,10 @@ TagManager:
     userID: 1
     uniqueID: 1224937407
     locked: 0
+  - name: HidingLayer
+    userID: 4
+    uniqueID: 3366565163
+    locked: 0
   - name: Foreground
     userID: 3
     uniqueID: 3764217013

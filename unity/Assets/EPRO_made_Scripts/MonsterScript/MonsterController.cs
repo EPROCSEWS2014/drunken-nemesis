@@ -3,17 +3,26 @@
 public class MonsterController : MonoBehaviour
 {
     public float speed = 10;
+    public int detectionRange = 5;
+
     Vector2 playerPosition;
     float distance;
+    double deltaTime = 0;
+
+    bool grounded = false;
+    bool facingRight = true;
+    bool moving = false;
+    Vector2 moveTo;
+    bool lostPlayer = false;
+
+    Animator anim;
+    RestartScript restart;
+
     LayerMask whatIsGround;
     Transform groundCheck;
     float groundedRadius = .2f;
-    bool grounded = false;
-    bool facingRight = true;
     Transform ceilingCheck;
     float ceilingRadius = .01f;
-    Animator anim;
-    RestartScript restart;
 
     void Awake()
     {
@@ -25,8 +34,47 @@ public class MonsterController : MonoBehaviour
     
     void Update()
     {
+<<<<<<< HEAD
         playerPosition = GameObject.Find("2DCharacter").transform.position;
         distance = playerPosition.x - transform.position.x;
+=======
+
+    }
+    
+    void FixedUpdate()
+    {
+        grounded = Physics2D.OverlapCircle(groundCheck.position, groundedRadius, whatIsGround);
+        anim.SetBool("Ground", grounded);
+        anim.SetFloat("vSpeed", rigidbody2D.velocity.y);
+        anim.SetFloat("Speed", speed);
+
+        playerPosition = GameObject.Find("2DCharacter").transform.position;
+        lostPlayer = false;
+        if (System.Math.Abs(playerPosition.x - transform.position.x) > detectionRange)
+        {
+            lostPlayer = true;
+        }
+
+        if (moving)
+        {
+            distance = moveTo.x - transform.position.x;
+            if (distance < speed)
+                moving = false;
+        } else if (lostPlayer)
+        {
+            System.Random rnd = new System.Random();
+            if(deltaTime > 2)
+            {
+                distance = 1 + 2*rnd.Next(-1,1);
+                deltaTime = 0;
+            }
+            deltaTime += Time.deltaTime;
+        }else
+        {
+            distance = playerPosition.x - transform.position.x;
+        }
+
+>>>>>>> origin/master
         if (distance > 0)
         {
             rigidbody2D.velocity = new Vector2(speed, rigidbody2D.velocity.y);
@@ -38,15 +86,6 @@ public class MonsterController : MonoBehaviour
             if (facingRight)
                 Flip();
         }
-        anim.SetFloat("Speed", speed);
-
-    }
-    
-    void FixedUpdate()
-    {
-        grounded = Physics2D.OverlapCircle(groundCheck.position, groundedRadius, whatIsGround);
-        anim.SetBool("Ground", grounded);
-        anim.SetFloat("vSpeed", rigidbody2D.velocity.y);
     }
 
     void Flip()
@@ -70,5 +109,10 @@ public class MonsterController : MonoBehaviour
         {
             restart.Restart();
         }
+    }
+
+    void MoveTo(Vector2 destination){
+        moveTo = destination;
+        moving = true;
     }
 }

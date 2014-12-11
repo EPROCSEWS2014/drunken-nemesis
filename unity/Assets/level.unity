@@ -1211,8 +1211,13 @@ GameObject:
   - 61: {fileID: 1332228597}
   - 114: {fileID: 1332228596}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: prototype_green_2x2
   m_TagString: MainDoor
+=======
+  m_Name: MainDoor
+  m_TagString: Untagged
+>>>>>>> origin/master
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1232,7 +1237,10 @@ MonoBehaviour:
   LoadLevelOnTouch: 
   LoadLevelOnReturn: hgf
   DoorTagToTeleport: MainDoor
+<<<<<<< HEAD
   DoorID: 0
+=======
+>>>>>>> origin/master
   doorOpen: {fileID: 8300000, guid: 74ca6935544a1fc46b9688eeda944e61, type: 3}
 --- !u!61 &1332228597
 BoxCollider2D:
@@ -1243,8 +1251,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Size: {x: 1.27999997, y: 1.27999997}
-  m_Center: {x: 0, y: 0}
+  m_Size: {x: 2.4000001, y: 3.9000001}
+  m_Center: {x: 0, y: -.25}
 --- !u!212 &1332228598
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1265,7 +1273,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 12ef7cbdfe0e143fa858a324456c8979, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1c7ba1ce0361c934d96c2f75ca449d03, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &1332228599
 Transform:
@@ -1274,8 +1282,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1332228595}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.79158068, y: 1.48870242, z: 0}
-  m_LocalScale: {x: .949686229, y: 2.2207315, z: 1}
+  m_LocalPosition: {x: 7.79158068, y: 1.74000001, z: 0}
+  m_LocalScale: {x: .600000024, y: .714999974, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -2157,6 +2165,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400002, guid: 87a2357765801c34292d6718d8b4d770, type: 2}
 <<<<<<< HEAD
+<<<<<<< HEAD
       propertyPath: airControl
       value: 1
       objectReference: {fileID: 0}
@@ -2172,6 +2181,8 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
 =======
+=======
+>>>>>>> origin/master
       propertyPath: jumpUp
       value: 
       objectReference: {fileID: 8300000, guid: 9f18100591f280341af8cb752b4ef27e, type: 3}
@@ -2198,6 +2209,9 @@ Prefab:
     - target: {fileID: 100008, guid: 87a2357765801c34292d6718d8b4d770, type: 2}
       propertyPath: m_IsActive
       value: 1
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
 >>>>>>> origin/master
       objectReference: {fileID: 0}
     m_RemovedComponents: []
