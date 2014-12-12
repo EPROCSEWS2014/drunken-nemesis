@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class LevelChangeTemp : MonoBehaviour {
-	public string LevelToChange; //String to choose the Level you want to teleport to
+	//public string LevelToChange; //String to choose the Level you want to teleport to
 	public string LoadLevelOnTouch; //String to teleport with a simple touch
 	public string LoadLevelOnReturn; // String to teleport with the return-button
 	public string DoorTagToTeleport;
@@ -15,7 +15,7 @@ public class LevelChangeTemp : MonoBehaviour {
 
 	void Awake()
 	{
-		if (CharWasHere == 1) {
+		/*if (CharWasHere == 1) {
 						GameObject.Find ("2DCharacter").SetActive (false);
 				}
 		if (DoorTagTemp!=null)
@@ -30,7 +30,7 @@ public class LevelChangeTemp : MonoBehaviour {
 			player = GameObject.FindWithTag ("Player").transform;
 			player.transform.position = player.transform.position;
 			}
-		}
+		}*/
 
 	}
 
@@ -42,17 +42,18 @@ public class LevelChangeTemp : MonoBehaviour {
 			{
 				DoorTagTemp = DoorTagToTeleport;
 				FadeInOut.sceneStarting = false; // set sceneStarting to false to fade out
-				Application.LoadLevel(LevelToChange); //.. change the Level to "LeveltoChange". Name "LeveltoChange" in Unity.
+				//Application.LoadLevel(LevelToChange); //.. change the Level to "LeveltoChange". Name "LeveltoChange" in Unity.
+				player = GameObject.FindWithTag ("Player").transform;
+				Door = GameObject.Find(DoorTagToTeleport).transform;
+				player.transform.position = Door.transform.position;
                 AudioSource.PlayClipAtPoint(doorOpen, transform.position, 1f);
 				CharWasHere=1;
-
-				//Debug.Log(DoorTagTemp);
 			}
 
 			if (LoadLevelOnTouch!="") //Check if string LoadLevelOnTouch is not empty to..
 			{
 				FadeInOut.sceneStarting = false; // set sceneStarting to false to fade out
-				Application.LoadLevel(LevelToChange); //.. teleport on a simple touch like a warpgate
+				//Application.LoadLevel(LevelToChange); //.. teleport on a simple touch like a warpgate
 			}
 		}
 	}
