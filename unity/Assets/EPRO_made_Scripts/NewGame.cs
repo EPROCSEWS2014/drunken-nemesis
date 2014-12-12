@@ -27,6 +27,8 @@ public class NewGame : MonoBehaviour {
 			sceneStarting = false;
 		}
 
+
+
 		if (!sceneStarting) // Check if the scene is ending and..
 		{
 			guiTexture.enabled = true; // .. enable the fader.png
