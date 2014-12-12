@@ -6,7 +6,8 @@ public class PlatformerCharacter2D : MonoBehaviour
 	bool facingRight = true;							// For determining which way the player is currently facing.
 
 	[SerializeField] float walkSpeed = 10f;				// The fastest the player can travel in the x axis.
-	[SerializeField] float jumpForce = 400f;			// Amount of force added when the player jumps.	
+	[SerializeField] float jumpForce = 400f;            // Amount of force added when the player jumps.	
+	[SerializeField] float runSpeed = 20f;
 
 	[Range(0, 1)]
 	[SerializeField] float crouchSpeed = .36f;			// Amount of maxSpeed applied to crouching movement. 1 = 100%
@@ -20,8 +21,8 @@ public class PlatformerCharacter2D : MonoBehaviour
 	Transform ceilingCheck;								// A position marking where to check for ceilings
 	float ceilingRadius = .01f;							// Radius of the overlap circle to determine if the player can stand up
 	Animator anim;										// Reference to the player's animator component.
-
-    //WB
+	
+	//WB
     public AudioClip jumpUp;
 
     void Awake()
@@ -89,7 +90,9 @@ public class PlatformerCharacter2D : MonoBehaviour
 
 			// Move the character
 			rigidbody2D.velocity = new Vector2(move * walkSpeed, rigidbody2D.velocity.y);
-			
+			if (Input.GetKey(KeyCode.V)){
+				rigidbody2D.velocity = new Vector2(move * runSpeed, rigidbody2D.velocity.y);
+			}
 			// If the input is moving the player right and the player is facing left...
 			if(move > 0 && !facingRight)
 				// ... flip the player.
@@ -98,6 +101,7 @@ public class PlatformerCharacter2D : MonoBehaviour
 			else if(move < 0 && facingRight)
 				// ... flip the player.
 				Flip();
+
 		}
 
         // If the player should jump...
