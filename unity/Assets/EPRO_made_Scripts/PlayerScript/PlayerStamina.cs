@@ -2,10 +2,7 @@ using UnityEngine;
 using System.Collections;
 
 public class PlayerStamina : MonoBehaviour {
-
-	private float normalSpeed;
-	private float runningSpeed;
-	private float speedUp = 1.5f;
+	
 	private float Stamina = 100;
 	private float maxStamina = 100;
 	private float minStamina = 1;
@@ -13,12 +10,9 @@ public class PlayerStamina : MonoBehaviour {
 	private float staminaRegenaration;
 	private bool isCharacterRunning;
 
-	private PlatformerCharacter2D pc2d;
-
 
 	void Awake (){
-		pc2d = GetComponent<PlatformerCharacter2D> ();
-		normalSpeed = pc2d.getWalkSpeed ();
+		DontDestroyOnLoad (this);
 		}
 
 	    public void runningStam () {
