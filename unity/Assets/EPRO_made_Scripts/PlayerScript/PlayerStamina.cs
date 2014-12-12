@@ -22,7 +22,7 @@ public class PlayerStamina : MonoBehaviour {
 
 	    public void runningStam () {
 					isCharacterRunning = false;
-					if (Input.GetKeyDown(KeyCode.V)) {
+					if (Input.GetKey(KeyCode.V)) {
 							isCharacterRunning = true;
 							runningSpeed = normalSpeed * speedUp;
 					}
