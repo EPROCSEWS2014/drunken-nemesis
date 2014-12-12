@@ -17,6 +17,12 @@ public class CameraL : MonoBehaviour
 
 	public bool IsFollowing { get; set; }
 
+	void Awake()
+	{
+		DontDestroyOnLoad (this);
+		//DontDestroyOnLoad (this.thingsThatMakePanic);
+	}
+
 	public void Start()
 	{
 		_min = Bounds.bounds.min;

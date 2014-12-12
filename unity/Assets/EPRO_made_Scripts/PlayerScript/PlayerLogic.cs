@@ -5,42 +5,49 @@ using System.Collections;
 public class PlayerLogic : MonoBehaviour
 {
 
-    private Transform player; // The player object 
-    private PlayerStamina ps;
+    Transform player; // The player object 
+    PlayerStamina ps;
 
     //Everything relating to the panicMethods
 
-    private float sanityLevel;  // The sanity level
+    float sanityLevel;  // The sanity level
     public int maximumSanity = 1000;
     public int minimumSanity = 0;
     public float sanityDrain = 100;
-    private float sanityRegen;
+    float sanityRegen;
     public int divisor = 10;
-    private bool isNearToMonster;
-    private float exhaustion;
+    bool isNearToMonster;
+    float exhaustion;
 
 
 
     //For the switch-case statement which triggers at specific panic levels
 
-    private int secondWorst;
-    private int thirdWorst;
-    private int forthWorst;
-    private int fithWorst;
+    int secondWorst;
+    int thirdWorst;
+    int forthWorst;
+    int fithWorst;
 
 
 
 
     //Attributes only concerning the EnemyFinding Algorithm
-    private Transform thingsThatMakePanic; 	 	// A transform Father, which contains all the monsters
+    Transform thingsThatMakePanic; 	 	// A tranform Father, which contains all the monsters
     public int triggerDistance = 5;		// The Distance where the Algorithm searches for Enemies
-    private float distance;					// The calculated distance to the monster
+    float distance;					// The calculated distance to the monster
 
     //End Algorithm
 
     //End panicMethods
 
-
+	void Awake()
+	{
+		DontDestroyOnLoad (this);
+		DontDestroyOnLoad (GameObject.Find ("EnemyContainer"));
+		/*if (GameObject.Find ("EnemyContainer")==null) {
+			Destroy (GameObject.Find ("EnemyContainer"));
+				}*/
+	}
 
     // Use this for initialization
     void Start()
@@ -54,20 +61,19 @@ public class PlayerLogic : MonoBehaviour
        // Debug.Log(this.sanityLevel);
         this.sanityRegen = (sanityDrain / divisor); // Calculates the Regeneration of the Sanity
         this.player = this.transform; // Returns the Player Transform
-        this.thingsThatMakePanic = GameObject.FindWithTag("EnemyC").transform;
+		if (GameObject.Find ("EnemyContainer")) {
+						this.thingsThatMakePanic = GameObject.FindWithTag ("EnemyC").transform;
+				
 
+		
+						if (player == null) {
+								Debug.LogError ("Please assign a player object");
 
-        if (player == null)
-        {
-            Debug.LogError("Please assign a player object");
-
-        }
-        else if (thingsThatMakePanic.GetChild(0) == null)
-        {
-            Debug.LogError("Please assign at least an enemy object");
-        }
-
-
+						} else if (thingsThatMakePanic.GetChild (0) == null) {
+								Debug.LogError ("Please assign at least an enemy object");
+						}
+				
+				}
     }
 
 
@@ -77,45 +83,42 @@ public class PlayerLogic : MonoBehaviour
     {
 
         detectionAlgorithm();
+
+	
+
+
 		//Debug.Log(this.sanityLevel);
 		Debug.Log(ps.getExhaustion());
 
 
     }
 
-    private void detectionAlgorithm()
+    void detectionAlgorithm()
     {
-        //Debug.Log(sanityLevel);
-        for (int i = 0; i < this.thingsThatMakePanic.childCount; i++)
-        {
+		if (GameObject.Find ("EnemyContainer")) { //Debug.Log(sanityLevel);
+						for (int i = 0; i < this.thingsThatMakePanic.childCount; i++) {
 
-            this.distance = Vector2.Distance(makeVector3To2(thingsThatMakePanic.GetChild(i)), makeVector3To2(player));
+								this.distance = Vector2.Distance (makeVector3To2 (thingsThatMakePanic.GetChild (i)), makeVector3To2 (player));
 
-            if (distance < triggerDistance)
-            {
+								if (distance < triggerDistance) {
 
-                this.isNearToMonster = true;
-                break;
+										this.isNearToMonster = true;
+										break;
 
 
-            }
-            else
-            {
-                this.isNearToMonster = false;
-            }
+								} else {
+										this.isNearToMonster = false;
+								}
 
-        }
+						}
 
-        if (isNearToMonster)
-        {
-            this.decreaseSanity(sanityDrain);
-        }
-        else
-        {
+						if (isNearToMonster) {
+								this.decreaseSanity (sanityDrain);
+						} else {
 
-            this.regainSanity(sanityRegen);
-        }
-
+								this.regainSanity (sanityRegen);
+						}
+				}
     }
 
     /**

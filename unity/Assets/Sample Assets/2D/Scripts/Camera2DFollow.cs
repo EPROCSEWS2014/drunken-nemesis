@@ -20,6 +20,12 @@ public class Camera2DFollow : MonoBehaviour {
 		offsetZ = (transform.position - target.position).z;
 		transform.parent = null;
 	}
+
+	void Awake()
+	{
+		DontDestroyOnLoad (this);
+		//DontDestroyOnLoad (this.thingsThatMakePanic);
+	}
 	
 	// Update is called once per frame
 	void Update () {
