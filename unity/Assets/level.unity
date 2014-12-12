@@ -1158,7 +1158,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 928900740}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -27.8195572, y: -1.55128968, z: -6.52857399}
+  m_LocalPosition: {x: -27.721241, y: -2.14118052, z: -6.52857399}
   m_LocalScale: {x: 1, y: 10, z: 20}
   m_Children: []
   m_Father: {fileID: 1635879119}
@@ -1302,6 +1302,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 13100000, guid: 829339ff271d27a4aa21a442692560ae, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 829339ff271d27a4aa21a442692560ae, type: 2}
   m_RootGameObject: {fileID: 1966664269}
@@ -1395,7 +1399,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!1 &1282458433
 GameObject:
   m_ObjectHideFlags: 0
@@ -1638,10 +1642,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 3265407}
-  damping: .5
-  lookAheadFactor: 2
-  lookAheadReturnSpeed: .5
-  lookAheadMoveThreshold: .100000001
+  damping: 1
+  lookAheadFactor: 4
+  lookAheadReturnSpeed: .200000003
+  lookAheadMoveThreshold: 0
 --- !u!81 &1580367955
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1869,7 +1873,7 @@ Transform:
   - {fileID: 2056811748}
   - {fileID: 18736595}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
 --- !u!1 &1760520906
 GameObject:
   m_ObjectHideFlags: 0
