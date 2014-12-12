@@ -111,8 +111,8 @@ public class PlatformerCharacter2D : MonoBehaviour
         if (grounded && jump) {
             // Add a vertical force to the player.
             anim.SetBool("Ground", false);
-            rigidbody2D.AddForce(new Vector2(0f, jumpForce));
-            AudioSource.PlayClipAtPoint(jumpUp, transform.position, 1f);
+       	rigidbody2D.AddForce(new Vector2(0f, jumpForce));
+        //DISABLE JUMP    AudioSource.PlayClipAtPoint(jumpUp, transform.position, 1f);
         }
 	}
 

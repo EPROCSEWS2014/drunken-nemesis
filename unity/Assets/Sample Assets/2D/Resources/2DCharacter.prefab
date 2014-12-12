@@ -577,7 +577,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkSpeed: 10
-  jumpForce: 500
+  jumpForce: 0
+  runSpeed: 20
   crouchSpeed: .25
   airControl: 1
   whatIsGround:
