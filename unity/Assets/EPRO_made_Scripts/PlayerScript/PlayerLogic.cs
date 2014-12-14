@@ -4,7 +4,10 @@ using System.Collections;
 
 public class PlayerLogic : MonoBehaviour
 {
+	//Hidden Trigger Variable
 	public static bool HiddenTrigger=false;
+
+
     Transform player; // The player object 
     PlayerStamina ps;
 

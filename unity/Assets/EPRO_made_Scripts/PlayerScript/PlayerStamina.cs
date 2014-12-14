@@ -2,17 +2,17 @@ using UnityEngine;
 using System.Collections;
 
 public class PlayerStamina : MonoBehaviour {
-	
-	private float Stamina = 100;
-	private float maxStamina = 100;
-	private float minStamina = 1;
-	private float staminaDrain = 0.5f;
+
+	public float maxStamina = 100;
+	private float Stamina;
+	public float minStamina = 1;
+	public float staminaDrain = 0.5f;
 	private float staminaRegenaration;
 	private bool isCharacterRunning;
 
 
 	void Awake (){
-
+		Stamina = maxStamina;
 		}
 
 	    public void runningStam () {
