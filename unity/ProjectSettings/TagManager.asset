@@ -7,8 +7,6 @@ TagManager:
   - EnemyC
   - rota
   - rotb
-  - MainDoor
-  - SecondDoor
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX

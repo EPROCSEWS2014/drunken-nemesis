@@ -10,6 +10,7 @@ public class LightCameraFollow : MonoBehaviour {
 
 	void Awake() {
 		player = GameObject.FindGameObjectWithTag("Player").transform;
+		DontDestroyOnLoad (this);
 	}
 	
 	void Update() {

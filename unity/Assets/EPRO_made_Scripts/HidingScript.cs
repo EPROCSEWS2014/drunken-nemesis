@@ -7,7 +7,7 @@ public class HidingScript : MonoBehaviour
 	static string ObjectToHideStringTemp;
 	Transform player;
 	Transform ObjectToHide;
-	int returnButton = 0;
+	//int HiddenTrigger = 0;
 	public BoxCollider2D[] colliderTriggers;
 	private Transform SpotLight;
 
@@ -27,10 +27,10 @@ public class HidingScript : MonoBehaviour
 			colliderTriggers = ObjectToHide.GetComponentsInChildren<BoxCollider2D>();
 			if (Input.GetKeyDown(KeyCode.Return))
 			{
-				switch (returnButton)
+				switch (PlayerLogic.HiddenTrigger)
 				{
-				case 0:
-					returnButton=1;
+				case false:
+					PlayerLogic.HiddenTrigger=true;
 					player.transform.position = ObjectToHide.transform.position;
 					foreach(BoxCollider2D a in colliderTriggers)
 					{
@@ -39,8 +39,8 @@ public class HidingScript : MonoBehaviour
 					ObjectToHide.gameObject.renderer.sortingLayerID=4;
 					SpotLight.gameObject.SetActive(false);
 					break;
-				case 1:
-					returnButton=0;
+				case true:
+					PlayerLogic.HiddenTrigger=false;
 					player.transform.position = ObjectToHide.transform.position;
 					foreach(BoxCollider2D a in colliderTriggers)
 					{

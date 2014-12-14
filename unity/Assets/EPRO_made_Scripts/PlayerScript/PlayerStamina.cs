@@ -3,34 +3,28 @@ using System.Collections;
 
 public class PlayerStamina : MonoBehaviour {
 
-	private float normalSpeed;
-	private float runningSpeed;
-	private float speedUp = 1.5f;
+	public float maxStamina = 100;
 	private float Stamina;
-	private float maxStamina = 100;
-	private float minStamina = 1;
-	private float staminaDrain = 0.5f;
+	public float minStamina = 1;
+	public float staminaDrain = 0.5f;
 	private float staminaRegenaration;
 	private bool isCharacterRunning;
 
-	private PlatformerCharacter2D pc2d;
 
 	void Awake (){
-				pc2d = GetComponent<PlatformerCharacter2D> ();
-		normalSpeed = pc2d.getWalkSpeed ();
+		Stamina = maxStamina;
 		}
 
 	    public void runningStam () {
 					isCharacterRunning = false;
 					if (Input.GetKey(KeyCode.V)) {
 							isCharacterRunning = true;
-							runningSpeed = normalSpeed * speedUp;
 					}
+
 					if (isCharacterRunning == true) {
 							Stamina -= staminaDrain;
-				            normalSpeed = runningSpeed;
-			                
-							if ((Stamina -= staminaDrain) < 1) {
+
+			                if ((Stamina -= staminaDrain) < 1) {
 									Stamina = minStamina;
 							}
 					} else {
