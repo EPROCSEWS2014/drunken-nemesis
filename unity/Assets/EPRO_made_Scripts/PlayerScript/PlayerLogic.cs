@@ -96,33 +96,29 @@ public class PlayerLogic : MonoBehaviour
 
     }
 
-    void detectionAlgorithm()
-    {
-		if (GameObject.Find ("EnemyContainer")) { //Debug.Log(sanityLevel);
-						for (int i = 0; i < this.thingsThatMakePanic.childCount; i++) {
-
-								this.distance = Vector2.Distance (makeVector3To2 (thingsThatMakePanic.GetChild (i)), makeVector3To2 (player));
-
-								if (distance < triggerDistance) {
-
-										this.isNearToMonster = true;
-										break;
-
-
-								} else {
-										this.isNearToMonster = false;
-								}
-
-						}
-
-						if (isNearToMonster) {
-								this.decreaseSanity (sanityDrain);
-						} else {
-
-								this.regainSanity (sanityRegen);
-						}
-				}
-    }
+void detectionAlgorithm()
+{
+if (GameObject.Find ("EnemyContainer")) {
+for (int i = 0; i < this.thingsThatMakePanic.childCount; i++)
+{
+this.distance = Vector2.Distance(makeVector3To2(thingsThatMakePanic.GetChild(i)), makeVector3To2(player));
+if (distance < triggerDistance)
+{
+this.isNearToMonster = true;
+break;
+}
+else
+{
+this.isNearToMonster = false;
+}
+}
+if (isNearToMonster) {
+this.decreaseSanity (sanityDrain);
+} else {
+this.regainSanity (sanityRegen);
+}
+}
+}
 
     /**
     Transforms a Vector3 into a Vector2
