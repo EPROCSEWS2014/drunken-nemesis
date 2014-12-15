@@ -3,8 +3,8 @@ using System.Collections;
 
 public class LightFollow : MonoBehaviour {
     
-	private float positionX = -2;
-	public float positionY;
+	private float lightPositionX = -2;
+	public float lightPositionY;
 
 	private Transform player;
 //	private bool boolean = true;
@@ -34,8 +34,8 @@ public class LightFollow : MonoBehaviour {
 	}*/
 
 	void Track() {
-		float targetX = player.position.x + positionX;
-		float targetY = player.position.y - positionY;
+		float targetX = player.position.x + lightPositionX;
+		float targetY = player.position.y - lightPositionY;
 //      Vector3 vectora = new Vector3(0, 240, 0);
 //		Vector3 vectorb = new Vector3 (0, 120, 0);
         Quaternion to;
