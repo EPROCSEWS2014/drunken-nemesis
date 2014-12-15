@@ -11,10 +11,14 @@ public class LightFollow : MonoBehaviour {
     private Transform rota;
     private Transform rotb;
 
+	private Transform lightT;
+
+
 	void Awake() {
 		player = GameObject.FindGameObjectWithTag("Player").transform;
         rota = GameObject.FindGameObjectWithTag("rota").transform;
         rotb = GameObject.FindGameObjectWithTag("rotb").transform;
+		lightT = gameObject.transform;
 	}
 	
 	void Update() {
@@ -38,7 +42,8 @@ public class LightFollow : MonoBehaviour {
 		float targetY = player.position.y - lightPositionY;
 //      Vector3 vectora = new Vector3(0, 240, 0);
 //		Vector3 vectorb = new Vector3 (0, 120, 0);
-        Quaternion to;
+        
+		Quaternion to;
         Quaternion from;
         
 	/*	if (!CheckRight())
@@ -57,18 +62,41 @@ public class LightFollow : MonoBehaviour {
         {
             to = rota.rotation;
 			from = rotb.rotation;
+
             //transform.rotation = new Quaternion(0, 0.5f, 0, 0);
             //transform.Rotate(vectora);
             //positionX = -2;
+
+		
         }
         else
         {
            // boolean = false;
             to = rotb.rotation;
 			from = rota.rotation;
+
         }
 
-        transform.rotation = Quaternion.Lerp(from, to, Time.deltaTime * 1);
-		transform.position = new Vector3(targetX, targetY, transform.position.z);
+
+
+		if(roundAndCompare(to.y,from.y) && roundAndCompare(to.w,from.w)){
+
+			lightT.rotation = Quaternion.Lerp(from, to, Time.deltaTime * 100);
+
+		}
+
+		//New position of the light after frame
+		lightT.position = new Vector3(targetX, targetY, transform.position.z);
 	}
+
+
+	bool roundAndCompare(float a, float b){
+		float a1 = Mathf.Round(a);
+		float a2 = Mathf.Round(b);
+
+		return a1==a2;
+
+
+	}
+
 }

@@ -1052,7 +1052,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be99330d5a91269449beee05cb7c1100, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positionY: .5
+  lightPositionY: 0
 --- !u!108 &523003616
 Light:
   m_ObjectHideFlags: 0
