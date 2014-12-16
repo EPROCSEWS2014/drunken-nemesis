@@ -4,7 +4,6 @@ using System.Collections;
 public class LightFollow : MonoBehaviour
 {
 	private float lightPositionX = -2;
-	public float lightPositionY;
 
 	private Transform player;
 
@@ -30,7 +29,7 @@ public class LightFollow : MonoBehaviour
 		Quaternion to;
 
 		float targetX = player.position.x;
-		float targetY = player.position.y - lightPositionY;
+		float targetY = player.position.y;
 
         if (player.localScale.x >= 0)
         {
