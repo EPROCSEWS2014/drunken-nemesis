@@ -42,11 +42,8 @@ public class LightFollow : MonoBehaviour
 			targetX -= lightPositionX;
         }
 
-<<<<<<< HEAD
-		if (to.y >= 0 || to.y <= 0) {
-=======
-		if (Mathf.Abs(lightT.rotation.y-to.y) >= b) {
->>>>>>> origin/master
+		if (to.y >= 0 || to.y <= 0)
+        {
 			lightT.rotation = Quaternion.Lerp (lightT.rotation, to, Time.deltaTime * 5);
 		} 
 
