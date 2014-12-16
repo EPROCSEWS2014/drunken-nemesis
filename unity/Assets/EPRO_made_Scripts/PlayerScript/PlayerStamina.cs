@@ -56,7 +56,7 @@ public class PlayerStamina : MonoBehaviour {
 	}
 	void Update() {
 				runningStam();
-				Debug.Log (Stamina);
+				//Debug.Log (Stamina);
 		}
 
 
