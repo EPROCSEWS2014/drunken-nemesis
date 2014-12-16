@@ -8,7 +8,7 @@ public class LightFollow : MonoBehaviour
 	private Transform player;
 
     private Transform lightT;
-
+	private float b = 0.000000001f;
 	private Quaternion leftPos = new Quaternion (0,0.5f,0,1);
 	private Quaternion rightPos = new Quaternion (0,-0.5f,0,1);
 
@@ -42,7 +42,11 @@ public class LightFollow : MonoBehaviour
 			targetX -= lightPositionX;
         }
 
+<<<<<<< HEAD
 		if (to.y >= 0 || to.y <= 0) {
+=======
+		if (Mathf.Abs(lightT.rotation.y-to.y) >= b) {
+>>>>>>> origin/master
 			lightT.rotation = Quaternion.Lerp (lightT.rotation, to, Time.deltaTime * 5);
 		} 
 
