@@ -91,7 +91,7 @@ public class PlayerLogic : MonoBehaviour
 
 
 		//Debug.Log(this.sanityLevel);
-		Debug.Log(ps.getExhaustion());
+		//Debug.Log(ps.getExhaustion());
 
 
     }
