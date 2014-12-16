@@ -106,7 +106,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 3265406}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.5, z: 0}
+  m_LocalPosition: {x: 0, y: 1.21961403, z: 0}
   m_LocalScale: {x: 1.79999995, y: 1.79999995, z: 1}
   m_Children:
   - {fileID: 210331642}
@@ -114,7 +114,7 @@ Transform:
   - {fileID: 1580367952}
   - {fileID: 447573516}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
 --- !u!82 &3265408
 AudioSource:
   m_ObjectHideFlags: 0
@@ -817,7 +817,7 @@ Transform:
   m_LocalScale: {x: .600000024, y: .714999974, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
 --- !u!1001 &401778493
 Prefab:
   m_ObjectHideFlags: 0
@@ -1049,11 +1049,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 523003614}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9c83d1aaf7eea14b8f59245699d823e, type: 3}
+  m_Script: {fileID: 11500000, guid: be99330d5a91269449beee05cb7c1100, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positionX: -2
-  positionY: .5
+  lightPositionX: -2
+  player: {fileID: 0}
+  lightT: {fileID: 0}
+  leftPos: {x: 0, y: .5, z: 0, w: 1}
+  rightPos: {x: 0, y: -.5, z: 0, w: 1}
 --- !u!108 &523003616
 Light:
   m_ObjectHideFlags: 0
@@ -1096,9 +1099,9 @@ Transform:
   m_PrefabParentObject: {fileID: 400006, guid: f0a79e7b497312c4ba490faa04e6b7fc, type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 523003614}
-  m_LocalRotation: {x: 0, y: .5, z: 0, w: .866025388}
-  m_LocalPosition: {x: -2, y: 1.10000002, z: -3}
-  m_LocalScale: {x: 1.06666672, y: 1, z: 1.06666672}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: -3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
@@ -1268,7 +1271,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &798912130
 Light:
   m_ObjectHideFlags: 0
@@ -1276,7 +1279,7 @@ Light:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 798912129}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2149,7 +2152,7 @@ Transform:
   - {fileID: 928900744}
   - {fileID: 69963107}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!1 &1653231506
 GameObject:
   m_ObjectHideFlags: 0
@@ -2228,7 +2231,7 @@ Transform:
   - {fileID: 2056811748}
   - {fileID: 18736595}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!1 &1760520906
 GameObject:
   m_ObjectHideFlags: 0
