@@ -148,35 +148,35 @@ public class PlayerLogic : MonoBehaviour
 
         if (sanityLevel < 250)
         {
-            if (!audioSource[0].isPlaying)
-                audioSource[0].Play();
-            audioSource[1].Stop();
+            if (!audioSource[3].isPlaying)
+                audioSource[3].Play();
             audioSource[2].Stop();
-            audioSource[3].Stop();
+            audioSource[1].Stop();
+            audioSource[0].Stop();
         }
         else if (sanityLevel < 500)
         {
-            audioSource[0].Stop();
-            if (!audioSource[1].isPlaying)
-                audioSource[1].Play();
-            audioSource[2].Stop();
             audioSource[3].Stop();
+            if (!audioSource[2].isPlaying)
+                audioSource[2].Play();
+            audioSource[1].Stop();
+            audioSource[0].Stop();
         }
         else if (sanityLevel < 750)
         {  
-            audioSource[0].Stop();
-            audioSource[1].Stop();
-            if (!audioSource[2].isPlaying)
-                audioSource[2].Play();
             audioSource[3].Stop();
+            audioSource[2].Stop();
+            if (!audioSource[1].isPlaying)
+                audioSource[1].Play();
+            audioSource[0].Stop();
         }
         else if (sanityLevel <= 1000)
         {
-            audioSource[0].Stop();
-            audioSource[1].Stop();
+            audioSource[3].Stop();
             audioSource[2].Stop();
-            if (!audioSource[3].isPlaying)
-                audioSource[3].Play();
+            audioSource[1].Stop();
+            if (!audioSource[0].isPlaying)
+                audioSource[0].Play();
         }
     }
 

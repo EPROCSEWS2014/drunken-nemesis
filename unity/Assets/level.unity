@@ -201,10 +201,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4e02ef047bab0e43a481ca086cfad86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sanityLevel: 0
   maximumSanity: 1000
   minimumSanity: 0
   sanityDrain: 10
   divisor: 20
+  audioClip:
+  - {fileID: 8300000, guid: bf3db77a98ccd1a4b96fb340bb9448f5, type: 3}
+  - {fileID: 8300000, guid: d98f23d92e09f994885595c497c4ddae, type: 3}
+  - {fileID: 8300000, guid: 25087cb4443ac5844b5a98ac3fc8d581, type: 3}
+  - {fileID: 8300000, guid: 98ce9d6c9fcb84141905a10ab264832b, type: 3}
+  staminaVol1: 1
+  staminaVol2: 1
+  staminaVol3: 1
+  staminaVol4: 1
   triggerDistance: 5
 --- !u!61 &3265411
 BoxCollider2D:
@@ -775,6 +785,7 @@ MonoBehaviour:
   LoadLevelOnReturn: hgf
   DoorTagToTeleport: MainDoor Prefab
   doorOpen: {fileID: 8300000, guid: 74ca6935544a1fc46b9688eeda944e61, type: 3}
+  volume: 0
 --- !u!61 &397968716
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1952,6 +1963,7 @@ MonoBehaviour:
   LoadLevelOnReturn: hgf
   DoorTagToTeleport: SecondDoor
   doorOpen: {fileID: 8300000, guid: 74ca6935544a1fc46b9688eeda944e61, type: 3}
+  volume: 0
 --- !u!61 &1332228597
 BoxCollider2D:
   m_ObjectHideFlags: 0
