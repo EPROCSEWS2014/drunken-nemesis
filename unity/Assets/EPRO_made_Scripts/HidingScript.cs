@@ -10,6 +10,7 @@ public class HidingScript : MonoBehaviour
 	//int HiddenTrigger = 0;
 	public BoxCollider2D[] colliderTriggers;
 	private Transform SpotLight;
+	private float speedtemp;
 
 	void Awake()
 	{
@@ -38,6 +39,8 @@ public class HidingScript : MonoBehaviour
 					}
 					ObjectToHide.gameObject.renderer.sortingLayerID=4;
 					SpotLight.gameObject.SetActive(false);
+					speedtemp=PlatformerCharacter2D.walkSpeed;
+					PlatformerCharacter2D.walkSpeed = 0f;
 					break;
 				case true:
 					PlayerLogic.HiddenTrigger=false;
@@ -48,6 +51,7 @@ public class HidingScript : MonoBehaviour
 					}
 					ObjectToHide.gameObject.renderer.sortingLayerID=0;
 					SpotLight.gameObject.SetActive(true);
+					PlatformerCharacter2D.walkSpeed=speedtemp;
 					break;
 				}
 			}
