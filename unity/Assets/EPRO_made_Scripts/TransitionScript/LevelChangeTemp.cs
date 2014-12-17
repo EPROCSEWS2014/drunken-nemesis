@@ -12,6 +12,7 @@ public class LevelChangeTemp : MonoBehaviour {
 	int CharWasHere = 0;
 
     public AudioClip doorOpen;
+    public float volume = 1;
 
 	void Awake()
 	{
@@ -46,7 +47,7 @@ public class LevelChangeTemp : MonoBehaviour {
 				player = GameObject.FindWithTag ("Player").transform;
 				Door = GameObject.Find(DoorTagToTeleport).transform;
 				player.transform.position = Door.transform.position;
-                AudioSource.PlayClipAtPoint(doorOpen, transform.position, 1f);
+                AudioSource.PlayClipAtPoint(doorOpen, transform.position, volume);
 				CharWasHere=1;
 
                 //Transists the Monster

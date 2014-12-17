@@ -13,7 +13,7 @@ public class PlayerLogic : MonoBehaviour
 
     //Everything relating to the panicMethods
 
-    float sanityLevel;  // The sanity level
+    public float sanityLevel;  // The sanity level
     public int maximumSanity = 1000;
     public int minimumSanity = 0;
     public float sanityDrain = 100;
@@ -22,6 +22,8 @@ public class PlayerLogic : MonoBehaviour
     bool isNearToMonster;
     float exhaustion;
 
+    public AudioClip[] audioClip;       
+    private AudioSource[] audioSource;  
 
 
     //For the switch-case statement which triggers at specific panic levels
@@ -31,7 +33,10 @@ public class PlayerLogic : MonoBehaviour
     int forthWorst;
     int fithWorst;
 
-
+    public float staminaVol1 = 1.0f;
+    public float staminaVol2 = 1.0f;
+    public float staminaVol3 = 1.0f;
+    public float staminaVol4 = 1.0f;
 
 
     //Attributes only concerning the EnemyFinding Algorithm
@@ -50,6 +55,7 @@ public class PlayerLogic : MonoBehaviour
 		/*if (GameObject.Find ("EnemyContainer")==null) {
 			Destroy (GameObject.Find ("EnemyContainer"));
 				}*/
+        
 	}
 
     // Use this for initialization
@@ -77,6 +83,7 @@ public class PlayerLogic : MonoBehaviour
 						}
 				
 				}
+        getSounds();
     }
 
 
@@ -87,49 +94,98 @@ public class PlayerLogic : MonoBehaviour
 
         detectionAlgorithm();
 
-	
-
-
 		//Debug.Log(this.sanityLevel);
 		//Debug.Log(ps.getExhaustion());
 
+        audioSource[0].volume = staminaVol1;
+        audioSource[1].volume = staminaVol2;
+        audioSource[2].volume = staminaVol3;
+        audioSource[3].volume = staminaVol4;
 
     }
 
-void detectionAlgorithm()
-{
-if (GameObject.Find ("EnemyContainer")) {
-for (int i = 0; i < this.thingsThatMakePanic.childCount; i++)
-{
-this.distance = Vector2.Distance(makeVector3To2(thingsThatMakePanic.GetChild(i)), makeVector3To2(player));
-if (distance < triggerDistance)
-{
-this.isNearToMonster = true;
-break;
-}
-else
-{
-this.isNearToMonster = false;
-}
-}
-if (isNearToMonster) {
-this.decreaseSanity (sanityDrain);
-} else {
-this.regainSanity (sanityRegen);
-}
-}
-}
+    private void getSounds()
+    {
+       
+        audioSource = new AudioSource[audioClip.Length];
+        for (int i = 0; i < audioSource.Length; i++)
+        {
+            audioSource[i] = gameObject.AddComponent<AudioSource>();
+            audioSource[i].clip = audioClip[i];
+            audioSource[i].loop = true;
+            audioSource[i].volume = 0.0f;
+        }
+    }
+
+
+
+    void detectionAlgorithm()
+    {
+        if (GameObject.Find("EnemyContainer"))
+        {
+            for (int i = 0; i < this.thingsThatMakePanic.childCount; i++)
+            {
+                this.distance = Vector2.Distance(makeVector3To2(thingsThatMakePanic.GetChild(i)), makeVector3To2(player));
+                if (distance < triggerDistance)
+                {
+                    this.isNearToMonster = true;
+                    break;
+                }
+                else
+                {
+                    this.isNearToMonster = false;
+                }
+            }
+            if (isNearToMonster)
+            {
+                this.decreaseSanity(sanityDrain);
+            }
+            else
+            {
+                this.regainSanity(sanityRegen);
+            }
+        }
+
+        if (sanityLevel < 250)
+        {
+            if (!audioSource[0].isPlaying)
+                audioSource[0].Play();
+            audioSource[1].Stop();
+            audioSource[2].Stop();
+            audioSource[3].Stop();
+        }
+        else if (sanityLevel < 500)
+        {
+            audioSource[0].Stop();
+            if (!audioSource[1].isPlaying)
+                audioSource[1].Play();
+            audioSource[2].Stop();
+            audioSource[3].Stop();
+        }
+        else if (sanityLevel < 750)
+        {  
+            audioSource[0].Stop();
+            audioSource[1].Stop();
+            if (!audioSource[2].isPlaying)
+                audioSource[2].Play();
+            audioSource[3].Stop();
+        }
+        else if (sanityLevel <= 1000)
+        {
+            audioSource[0].Stop();
+            audioSource[1].Stop();
+            audioSource[2].Stop();
+            if (!audioSource[3].isPlaying)
+                audioSource[3].Play();
+        }
+    }
 
     /**
     Transforms a Vector3 into a Vector2
      */
     public Vector2 makeVector3To2(Transform t)
     {
-
-
         return new Vector2(t.position.x, t.position.y);
-
-
     }
 
 
@@ -144,13 +200,8 @@ this.regainSanity (sanityRegen);
         }
         else
         {
-
             this.sanityLevel -= height;
-
         }
-
-
-
 
         if (sanityLevel == minimumSanity)
         {
@@ -192,11 +243,7 @@ this.regainSanity (sanityRegen);
 
 
         }
-
-
-
     }
-
 
 
     public void regainSanity(float height)
@@ -222,14 +269,8 @@ this.regainSanity (sanityRegen);
     }
     public void setPanicLevel(float newPanicLevel)
     {
-
         this.sanityLevel = newPanicLevel;
-
-
     }
-
-
-
 }
 
 
