@@ -3,7 +3,7 @@ using System.Collections;
 
 public class MonsterController : MonoBehaviour
 {
-    public float speed = 10;
+    public float speed = 5f;
     public int detectionRange = 5;
 
     Vector2 playerPosition;
