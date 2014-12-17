@@ -48,6 +48,10 @@ public class LevelChangeTemp : MonoBehaviour {
 				player.transform.position = Door.transform.position;
                 AudioSource.PlayClipAtPoint(doorOpen, transform.position, 1f);
 				CharWasHere=1;
+
+                //Transists the Monster
+                MonsterController mc = GameObject.Find("Monster").GetComponent<MonsterController>();
+                StartCoroutine(mc.Transist(player.position, Door.position));
 			}
 
 			if (LoadLevelOnTouch!="") //Check if string LoadLevelOnTouch is not empty to..

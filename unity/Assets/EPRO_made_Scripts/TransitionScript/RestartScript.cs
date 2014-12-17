@@ -9,7 +9,7 @@ public class RestartScript : MonoBehaviour
     void Start()
     {
         Monster = GameObject.Find("Monster");
-        Player = GameObject.Find("2D Character");
+        Player = GameObject.Find("2DCharacter");
     }
 
     public void Restart()

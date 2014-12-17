@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class MonsterController : MonoBehaviour
 {
@@ -14,9 +15,11 @@ public class MonsterController : MonoBehaviour
     bool moving = false;
     Vector2 moveTo;
     bool lostPlayer = false;
+    bool hiddenPlayer = false;
 
     Animator anim;
     RestartScript restart;
+    PlayerLogic pl;
 
     LayerMask whatIsGround;
     Transform groundCheck;
@@ -45,10 +48,12 @@ public class MonsterController : MonoBehaviour
         anim.SetFloat("Speed", speed);
 
         playerPosition = GameObject.Find("2DCharacter").transform.position;
+
         lostPlayer = false;
-        if (System.Math.Abs(playerPosition.x - transform.position.x) > detectionRange)
+        if (System.Math.Abs(playerPosition.x - transform.position.x) > detectionRange | PlayerLogic.HiddenTrigger)
         {
             lostPlayer = true;
+            //rigidbody2D.collider2D.enabled = false;
         }
 
         if (moving)
@@ -92,17 +97,26 @@ public class MonsterController : MonoBehaviour
         transform.localScale = theScale;
     }
 
-    void Spawn(Vector2 Position)
+    void Spawn(Vector2 position)
     {
         gameObject.SetActive(true);
-        transform.position = Position;
+        transform.position = position;
+    }
+
+    public IEnumerator Transist(Vector2 from, Vector2 to){
+        gameObject.SetActive(false);
+        float dTime;
+        dTime = Mathf.Abs(transform.position.x - from.x) / speed;
+
+        yield return new WaitForSeconds(dTime);
+        Spawn(to);
     }
 
     void OnCollisionEnter2D(Collision2D coll)
     {
-        if (coll.gameObject.name == "2D Character")
+        if (coll.gameObject.name == "2DCharacter")
         {
-            restart.Restart();
+            //restart.Restart();
         }
     }
 
