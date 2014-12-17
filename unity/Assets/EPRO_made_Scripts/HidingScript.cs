@@ -8,8 +8,9 @@ public class HidingScript : MonoBehaviour
 	Transform player;
 	Transform ObjectToHide;
 	//int HiddenTrigger = 0;
-	public BoxCollider2D[] colliderTriggers;
+	//public BoxCollider2D[] colliderTriggers;
 	private Transform SpotLight;
+	private float speedtemp;
 
 	void Awake()
 	{
@@ -24,7 +25,7 @@ public class HidingScript : MonoBehaviour
 			Debug.Log(ObjectToHideStringTemp);
 			player = GameObject.FindWithTag ("Player").transform;
 			ObjectToHide = GameObject.Find(ObjectToHideStringTemp).transform;
-			colliderTriggers = ObjectToHide.GetComponentsInChildren<BoxCollider2D>();
+			//colliderTriggers = ObjectToHide.GetComponentsInChildren<BoxCollider2D>();
 			if (Input.GetKeyDown(KeyCode.Return))
 			{
 				switch (PlayerLogic.HiddenTrigger)
@@ -32,22 +33,25 @@ public class HidingScript : MonoBehaviour
 				case false:
 					PlayerLogic.HiddenTrigger=true;
 					player.transform.position = ObjectToHide.transform.position;
-					foreach(BoxCollider2D a in colliderTriggers)
+					/*foreach(BoxCollider2D a in colliderTriggers)
 					{
 						a.collider2D.enabled=true;
-					}
+					}*/
 					ObjectToHide.gameObject.renderer.sortingLayerID=4;
 					SpotLight.gameObject.SetActive(false);
+					speedtemp=PlatformerCharacter2D.walkSpeed;
+					PlatformerCharacter2D.walkSpeed = 0f;
 					break;
 				case true:
 					PlayerLogic.HiddenTrigger=false;
 					player.transform.position = ObjectToHide.transform.position;
-					foreach(BoxCollider2D a in colliderTriggers)
+					/*foreach(BoxCollider2D a in colliderTriggers)
 					{
 						a.collider2D.enabled=false;
-					}
+					}*/
 					ObjectToHide.gameObject.renderer.sortingLayerID=0;
 					SpotLight.gameObject.SetActive(true);
+					PlatformerCharacter2D.walkSpeed=speedtemp;
 					break;
 				}
 			}
