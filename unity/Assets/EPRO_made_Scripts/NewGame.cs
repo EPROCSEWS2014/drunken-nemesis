@@ -4,15 +4,18 @@ using System.Collections;
 public class NewGame : MonoBehaviour {
 
 	float fadeSpeed = 0.01f;
-	bool sceneStarting = true;
+	int sceneStarting = 0;
+	Transform Keys;
 
 	void Awake()
 	{
 		guiTexture.pixelInset = new Rect (0f, 0f, Screen.width, Screen.height);
+		Keys = GameObject.Find ("Keys").transform;
+		Keys.renderer.sortingLayerID = 2;
 	}
 
 	void Update () {
-		if (sceneStarting) // Check if the scene is starting and..
+		if (sceneStarting==0) // Check if the scene is starting and..
 		{
 			guiTexture.color = Color.Lerp (guiTexture.color, Color.clear, fadeSpeed); // Set up the transparency..
 			if (guiTexture.color.a <= 0.0f) //.. until 0%,..
@@ -22,14 +25,17 @@ public class NewGame : MonoBehaviour {
 			}
 		} 
 
-		if (Input.GetKey (KeyCode.Return)) 
+		if (Input.GetKeyDown (KeyCode.Return)) 
 		{
-			sceneStarting = false;
+			sceneStarting += 1;
 		}
 
+		if (sceneStarting == 1) 
+		{
+			Keys.renderer.sortingLayerID = 0;
+		}
 
-
-		if (!sceneStarting) // Check if the scene is ending and..
+		if (sceneStarting==2) // Check if the scene is ending and..
 		{
 			guiTexture.enabled = true; // .. enable the fader.png
 			guiTexture.color = Color.Lerp (guiTexture.color, Color.black, fadeSpeed); // Set down the transparency..
