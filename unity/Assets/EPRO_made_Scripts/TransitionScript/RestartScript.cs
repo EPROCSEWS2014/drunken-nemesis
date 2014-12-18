@@ -20,7 +20,9 @@ public class RestartScript : MonoBehaviour
 
     public void RestartMonster()
     {
-        Monster.SetActive(false);
+		//Monster.SetActive(false);
+
+		Monster.SetActive(true);
     }
 
     public void RestartPlayer()
