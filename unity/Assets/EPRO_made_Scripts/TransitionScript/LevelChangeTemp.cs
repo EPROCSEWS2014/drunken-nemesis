@@ -76,17 +76,32 @@ public class LevelChangeTemp : MonoBehaviour {
 
 			if (LoadLevelOnTouch!="") //Check if string LoadLevelOnTouch is not empty to..
 			{
+				//oldCameraL = GameObject.Find (NextCameraLimitsTemp).GetComponent<BoxCollider2D>();
+				//oldCameraL.enabled=false;
+				
+				CameraCatch = GameObject.Find ("Main Camera").transform;
+				CameraCatch.gameObject.SetActive(false);
+				
 				DoorTagTemp = DoorTagToTeleport;
+				NextCameraLimitsTemp = NextCameraLimits;
+				//CameraL.Bounds = GameObject.Find (NextCameraLimitsTemp).GetComponent<BoxCollider2D>();
+				Debug.Log (NextCameraLimitsTemp);
+				
+				//CameraL.Bounds = NextCameraLimits;
 				FadeInOut.sceneStarting = false; // set sceneStarting to false to fade out
 				//Application.LoadLevel(LevelToChange); //.. change the Level to "LeveltoChange". Name "LeveltoChange" in Unity.
+				
 				player = GameObject.FindWithTag ("Player").transform;
 				Door = GameObject.Find(DoorTagToTeleport).transform;
 				player.transform.position = Door.transform.position;
+				CameraCatch.transform.position = player.transform.position;
+				
 				AudioSource.PlayClipAtPoint(doorOpen, transform.position, volume);
 				CharWasHere=1;
 				//Transists the Monster
 				MonsterController mc = GameObject.Find("Monster").GetComponent<MonsterController>();
 				StartCoroutine(mc.Transist(player.position, Door.position));
+				CameraCatch.gameObject.SetActive(true);
 			}
 		}
 	}
