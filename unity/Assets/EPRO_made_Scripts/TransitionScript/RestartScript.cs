@@ -3,7 +3,7 @@ using System.Collections;
 
 public class RestartScript : MonoBehaviour
 {
-    GameObject Monster;
+    /*GameObject Monster;
     GameObject Player;
 
     void Start()
@@ -14,7 +14,7 @@ public class RestartScript : MonoBehaviour
 
     public void Restart()
     {
-        RestartMonster();
+        //RestartMonster();
         RestartPlayer();
     }
 
@@ -28,5 +28,10 @@ public class RestartScript : MonoBehaviour
     public void RestartPlayer()
     {
         Player.transform.position = new Vector2(0, 0);
-    }
+    }*/
+
+	public void GameOver()
+	{
+		Application.LoadLevel ("GameOver");
+	}
 }
