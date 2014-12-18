@@ -432,7 +432,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: c309631eea5cf5a45ac8613d244bedfe, type: 2}
       propertyPath: m_Name
-      value: Schrank B
+      value: Schrank C
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: c309631eea5cf5a45ac8613d244bedfe, type: 2}
       propertyPath: ObjectToHideString
@@ -872,6 +872,7 @@ MonoBehaviour:
   LoadLevelOnTouch: 
   LoadLevelOnReturn: 
   DoorTagToTeleport: 
+  NextCameraLimits: 
   doorOpen: {fileID: 8300000, guid: 74ca6935544a1fc46b9688eeda944e61, type: 3}
   volume: 1
 --- !u!61 &397968716
@@ -2212,6 +2213,7 @@ MonoBehaviour:
   LoadLevelOnTouch: 
   LoadLevelOnReturn: 
   DoorTagToTeleport: 
+  NextCameraLimits: 
   doorOpen: {fileID: 8300000, guid: 74ca6935544a1fc46b9688eeda944e61, type: 3}
   volume: 1
 --- !u!61 &1149956019
@@ -2381,6 +2383,7 @@ MonoBehaviour:
   LoadLevelOnTouch: 
   LoadLevelOnReturn: hgf
   DoorTagToTeleport: Third Door
+  NextCameraLimits: 
   doorOpen: {fileID: 8300000, guid: 74ca6935544a1fc46b9688eeda944e61, type: 3}
   volume: 1
 --- !u!61 &1332228597
@@ -2687,7 +2690,6 @@ MonoBehaviour:
   Player: {fileID: 0}
   Margin: {x: 1, y: .5}
   Smoothing: {x: 2, y: 2}
-  Bounds: {fileID: 1760520907}
 --- !u!114 &1580367954
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2795,6 +2797,7 @@ MonoBehaviour:
   LoadLevelOnTouch: 
   LoadLevelOnReturn: 
   DoorTagToTeleport: 
+  NextCameraLimits: 
   doorOpen: {fileID: 8300000, guid: 74ca6935544a1fc46b9688eeda944e61, type: 3}
   volume: 1
 --- !u!61 &1610790740
@@ -2923,7 +2926,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 6235d6fbf7b64cb469b0553f52969015, type: 2}
       propertyPath: DoorTagToTeleport
-      value: Fifth Doof
+      value: Fifth Door
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 6235d6fbf7b64cb469b0553f52969015, type: 2}
       propertyPath: LoadLevelOnReturn
@@ -2967,6 +2970,7 @@ MonoBehaviour:
   LoadLevelOnTouch: 
   LoadLevelOnReturn: hgf
   DoorTagToTeleport: First Door
+  NextCameraLimits: 
   doorOpen: {fileID: 8300000, guid: 74ca6935544a1fc46b9688eeda944e61, type: 3}
   volume: 1
 --- !u!61 &1688964508
@@ -3233,7 +3237,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LoadLevelOnTouch: 
   LoadLevelOnReturn: hgf
-  DoorTagToTeleport: Fifth Doof
+  DoorTagToTeleport: Fifth Door
+  NextCameraLimits: 
   doorOpen: {fileID: 8300000, guid: 74ca6935544a1fc46b9688eeda944e61, type: 3}
   volume: 1
 --- !u!61 &1944705952
@@ -3545,7 +3550,7 @@ GameObject:
   - 114: {fileID: 2135899986}
   - 58: {fileID: 2135899985}
   m_Layer: 0
-  m_Name: Schrank B
+  m_Name: Schrank C
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
