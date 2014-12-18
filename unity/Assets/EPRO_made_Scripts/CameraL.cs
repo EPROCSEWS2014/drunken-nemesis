@@ -32,6 +32,7 @@ public class CameraL : MonoBehaviour
 	}
 	public void Update()
 	{
+		Debug.Log (Bounds);
 		var x = transform.position.x;
 		var y = transform.position.y;
 

@@ -8,6 +8,7 @@ public class LevelChangeTemp : MonoBehaviour {
 	public string DoorTagToTeleport;
 	public string NextCameraLimits;
 	public static string NextCameraLimitsTemp="CameraLimits";
+	BoxCollider2D oldCameraL;
 	static string DoorTagTemp;
 	Transform CameraCatch;
 	Transform Door;
@@ -15,11 +16,6 @@ public class LevelChangeTemp : MonoBehaviour {
 	int CharWasHere = 0;
     public AudioClip doorOpen;
     public float volume = 1;
-
-	void Start()
-	{
-
-	}
 
 	void Awake()
 	{
@@ -50,23 +46,32 @@ public class LevelChangeTemp : MonoBehaviour {
 		{ 
 			if (LoadLevelOnReturn!="" && Input.GetKeyDown(KeyCode.Return)) //.. check if string LoadLevelOnReturn is not empty and return is pressed to..
 			{
+				//oldCameraL = GameObject.Find (NextCameraLimitsTemp).GetComponent<BoxCollider2D>();
+				//oldCameraL.enabled=false;
+
+				CameraCatch = GameObject.Find ("Main Camera").transform;
+				CameraCatch.gameObject.SetActive(false);
+
 				DoorTagTemp = DoorTagToTeleport;
-				Destroy(GameObject.Find (NextCameraLimitsTemp));
 				NextCameraLimitsTemp = NextCameraLimits;
+				//CameraL.Bounds = GameObject.Find (NextCameraLimitsTemp).GetComponent<BoxCollider2D>();
 				Debug.Log (NextCameraLimitsTemp);
+
 				//CameraL.Bounds = NextCameraLimits;
 				FadeInOut.sceneStarting = false; // set sceneStarting to false to fade out
 				//Application.LoadLevel(LevelToChange); //.. change the Level to "LeveltoChange". Name "LeveltoChange" in Unity.
+
 				player = GameObject.FindWithTag ("Player").transform;
-				CameraCatch = GameObject.FindWithTag("MainCamera").transform;
 				Door = GameObject.Find(DoorTagToTeleport).transform;
 				player.transform.position = Door.transform.position;
 				CameraCatch.transform.position = player.transform.position;
+
                 AudioSource.PlayClipAtPoint(doorOpen, transform.position, volume);
 				CharWasHere=1;
                 //Transists the Monster
                 MonsterController mc = GameObject.Find("Monster").GetComponent<MonsterController>();
                 StartCoroutine(mc.Transist(player.position, Door.position));
+				CameraCatch.gameObject.SetActive(true);
 			}
 
 			if (LoadLevelOnTouch!="") //Check if string LoadLevelOnTouch is not empty to..
