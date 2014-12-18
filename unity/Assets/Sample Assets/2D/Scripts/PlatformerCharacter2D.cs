@@ -93,7 +93,7 @@ public class PlatformerCharacter2D : MonoBehaviour
 
 			// Move the character
 			rigidbody2D.velocity = new Vector2(move * walkSpeed, rigidbody2D.velocity.y);
-			if (Input.GetKey(KeyCode.V) && pSta.getStamina() > 1){
+			if ((Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) && pSta.getStamina() > 1){
 				rigidbody2D.velocity = new Vector2(move * runSpeed, rigidbody2D.velocity.y);
 			}
 			// If the input is moving the player right and the player is facing left...

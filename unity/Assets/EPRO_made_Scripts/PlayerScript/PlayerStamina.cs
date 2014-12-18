@@ -17,7 +17,7 @@ public class PlayerStamina : MonoBehaviour {
 
 	    public void runningStam () {
 					isCharacterRunning = false;
-					if (Input.GetKey(KeyCode.V)) {
+					if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) {
 							isCharacterRunning = true;
 					}
 
