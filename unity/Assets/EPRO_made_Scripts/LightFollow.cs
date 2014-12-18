@@ -1,31 +1,26 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class LightFollow : MonoBehaviour
-{
+public class LightFollow : MonoBehaviour {
 	private float lightPositionX = -2.3f;
 
 	private Transform player;
 
-    private Transform lightT;
-
+    private Transform light;
+    
 	private Quaternion leftPos = new Quaternion (0,0.58f,0,1);
 	private Quaternion rightPos = new Quaternion (0,-0.58f,0,1);
 
-
-	void Awake() 
-    {
+	void Awake() {
 		player = GameObject.FindGameObjectWithTag("Player").transform;
-		lightT = gameObject.transform;
+		light = gameObject.transform;
 	}
 	
-	void Update() 
-    {
+	void Update() {
 		Track();
 	}
 
-	void Track()
-    {
+	void Track() {
 		Quaternion to;
 
 		float targetX = player.position.x;
@@ -42,7 +37,7 @@ public class LightFollow : MonoBehaviour
 			targetX -= lightPositionX;
         }
 
-		lightT.rotation = Quaternion.Lerp (lightT.rotation, to, Time.deltaTime * 5);
-		lightT.position = new Vector3(targetX, targetY, transform.position.z);
+		light.rotation = Quaternion.Lerp (light.rotation, to, Time.deltaTime * 5);
+		light.position = new Vector3(targetX, targetY, transform.position.z);
 	}
 }

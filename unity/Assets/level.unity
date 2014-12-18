@@ -785,7 +785,7 @@ MonoBehaviour:
   LoadLevelOnReturn: hgf
   DoorTagToTeleport: MainDoor Prefab
   doorOpen: {fileID: 8300000, guid: 74ca6935544a1fc46b9688eeda944e61, type: 3}
-  volume: 0
+  volume: 1
 --- !u!61 &397968716
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1048,6 +1048,7 @@ GameObject:
   - 4: {fileID: 523003617}
   - 108: {fileID: 523003616}
   - 114: {fileID: 523003615}
+  - 114: {fileID: 523003618}
   m_Layer: 13
   m_Name: Spot light
   m_TagString: Untagged
@@ -1115,6 +1116,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
+--- !u!114 &523003618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 523003614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1bd31c1f1814fd4b95d56fa4bd1b2e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sanity: 4
+  decreaseSpeed: .00999999978
+  increaseSpeed: .0500000007
 --- !u!1 &590188973
 GameObject:
   m_ObjectHideFlags: 0
@@ -1963,7 +1978,7 @@ MonoBehaviour:
   LoadLevelOnReturn: hgf
   DoorTagToTeleport: SecondDoor
   doorOpen: {fileID: 8300000, guid: 74ca6935544a1fc46b9688eeda944e61, type: 3}
-  volume: 0
+  volume: 1
 --- !u!61 &1332228597
 BoxCollider2D:
   m_ObjectHideFlags: 0
