@@ -116,7 +116,7 @@ public class MonsterController : MonoBehaviour
     {
         if (coll.gameObject.name == "2DCharacter")
         {
-            //restart.Restart();
+            restart.Restart();
         }
     }
 
