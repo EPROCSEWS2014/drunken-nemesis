@@ -69,7 +69,7 @@ public class LevelChangeTemp : MonoBehaviour {
                 AudioSource.PlayClipAtPoint(doorOpen, transform.position, volume);
 				CharWasHere=1;
                 //Transists the Monster
-                MonsterController mc = GameObject.Find("Monster").GetComponent<MonsterController>();
+                MonsterController mc = GameObject.FindWithTag("Enemy").GetComponent<MonsterController>();
                 StartCoroutine(mc.Transist(player.position, Door.position));
 				CameraCatch.gameObject.SetActive(true);
 			}
