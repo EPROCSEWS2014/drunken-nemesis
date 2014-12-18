@@ -6,16 +6,25 @@ public class LevelChangeTemp : MonoBehaviour {
 	public string LoadLevelOnTouch; //String to teleport with a simple touch
 	public string LoadLevelOnReturn; // String to teleport with the return-button
 	public string DoorTagToTeleport;
+	public string NextCameraLimits;
+	public static string NextCameraLimitsTemp="CameraLimits";
 	static string DoorTagTemp;
+	Transform CameraCatch;
 	Transform Door;
 	Transform player;
 	int CharWasHere = 0;
-
     public AudioClip doorOpen;
     public float volume = 1;
 
+	void Start()
+	{
+
+	}
+
 	void Awake()
 	{
+		//NextCameraLimitsTemp = NextCameraLimits;
+		Debug.Log (NextCameraLimitsTemp);
 		/*if (CharWasHere == 1) {
 						GameObject.Find ("2DCharacter").SetActive (false);
 				}
@@ -42,14 +51,19 @@ public class LevelChangeTemp : MonoBehaviour {
 			if (LoadLevelOnReturn!="" && Input.GetKeyDown(KeyCode.Return)) //.. check if string LoadLevelOnReturn is not empty and return is pressed to..
 			{
 				DoorTagTemp = DoorTagToTeleport;
+				Destroy(GameObject.Find (NextCameraLimitsTemp));
+				NextCameraLimitsTemp = NextCameraLimits;
+				Debug.Log (NextCameraLimitsTemp);
+				//CameraL.Bounds = NextCameraLimits;
 				FadeInOut.sceneStarting = false; // set sceneStarting to false to fade out
 				//Application.LoadLevel(LevelToChange); //.. change the Level to "LeveltoChange". Name "LeveltoChange" in Unity.
 				player = GameObject.FindWithTag ("Player").transform;
+				CameraCatch = GameObject.FindWithTag("MainCamera").transform;
 				Door = GameObject.Find(DoorTagToTeleport).transform;
 				player.transform.position = Door.transform.position;
+				CameraCatch.transform.position = player.transform.position;
                 AudioSource.PlayClipAtPoint(doorOpen, transform.position, volume);
 				CharWasHere=1;
-
                 //Transists the Monster
                 MonsterController mc = GameObject.Find("Monster").GetComponent<MonsterController>();
                 StartCoroutine(mc.Transist(player.position, Door.position));
@@ -57,8 +71,17 @@ public class LevelChangeTemp : MonoBehaviour {
 
 			if (LoadLevelOnTouch!="") //Check if string LoadLevelOnTouch is not empty to..
 			{
+				DoorTagTemp = DoorTagToTeleport;
 				FadeInOut.sceneStarting = false; // set sceneStarting to false to fade out
-				//Application.LoadLevel(LevelToChange); //.. teleport on a simple touch like a warpgate
+				//Application.LoadLevel(LevelToChange); //.. change the Level to "LeveltoChange". Name "LeveltoChange" in Unity.
+				player = GameObject.FindWithTag ("Player").transform;
+				Door = GameObject.Find(DoorTagToTeleport).transform;
+				player.transform.position = Door.transform.position;
+				AudioSource.PlayClipAtPoint(doorOpen, transform.position, volume);
+				CharWasHere=1;
+				//Transists the Monster
+				MonsterController mc = GameObject.Find("Monster").GetComponent<MonsterController>();
+				StartCoroutine(mc.Transist(player.position, Door.position));
 			}
 		}
 	}

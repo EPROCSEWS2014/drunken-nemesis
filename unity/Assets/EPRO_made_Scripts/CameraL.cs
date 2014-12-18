@@ -9,7 +9,8 @@ public class CameraL : MonoBehaviour
 				Margin,
 				Smoothing;
 
-	public BoxCollider2D Bounds;
+	public static BoxCollider2D Bounds;
+
 
 	private Vector3
 	_min,
@@ -25,6 +26,7 @@ public class CameraL : MonoBehaviour
 
 	public void Start()
 	{
+		Bounds = GameObject.Find (LevelChangeTemp.NextCameraLimitsTemp).GetComponent<BoxCollider2D>();
 		_min = Bounds.bounds.min;
 		_max = Bounds.bounds.max;
 	}
