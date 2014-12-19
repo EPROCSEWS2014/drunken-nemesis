@@ -24,10 +24,11 @@ public class TeleporterScript : MonoBehaviour {
 		if (TimerStart == true) 
 		{
 			guiTexture.enabled = true;
-			guiTexture.color = Color.Lerp (guiTexture.color, Color.white, 0.01f);
+			guiTexture.color = Color.black;
+			guiTexture.color = Color.Lerp (guiTexture.color, Color.black, 0.01f);
 			Timer += Time.deltaTime;
 			//Time.timeScale=0;
-			if (Timer >= 2f) 
+			if (Timer >= 2.0f) 
 			{
 				//Time.timeScale=1;
 				Application.LoadLevel ("EndGame");

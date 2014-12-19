@@ -5,11 +5,13 @@ public class NewGame : MonoBehaviour {
 
 	float fadeSpeed = 0.01f;
 	int sceneStarting = 0;
+	Transform TitelS;
 	Transform Keys;
 
 	void Awake()
 	{
 		guiTexture.pixelInset = new Rect (0f, 0f, Screen.width, Screen.height);
+		TitelS = GameObject.Find ("Titelbild").transform;
 		Keys = GameObject.Find ("Keys").transform;
 		Keys.renderer.sortingLayerID = 2;
 	}
@@ -32,6 +34,7 @@ public class NewGame : MonoBehaviour {
 
 		if (sceneStarting == 1) 
 		{
+			TitelS.gameObject.SetActive(false);
 			Keys.renderer.sortingLayerID = 0;
 		}
 
