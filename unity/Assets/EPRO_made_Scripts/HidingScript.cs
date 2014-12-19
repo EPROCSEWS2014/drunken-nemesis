@@ -15,7 +15,8 @@ public class HidingScript : MonoBehaviour
 	private Transform SpotLight;
 	private float speedtemp;
 	bool kleber=false;
-
+	Renderer Background;
+	Renderer BackgroundTemp;
 
 	void Awake()
 	{
@@ -47,11 +48,16 @@ public class HidingScript : MonoBehaviour
 			ObjectToHide = GameObject.Find(ObjectToHideStringTemp).transform;
 			colliderTriggerBox = player.GetComponent<BoxCollider2D>();
 			colliderTriggerCircle = player.GetComponent<CircleCollider2D>();
+			Background = GameObject.Find ("background_0").transform.renderer;
+			//BackgroundTemp = GameObject.Find ("background_0").transform.renderer;
 			if (Input.GetKeyDown(KeyCode.Return))
 			{
 				switch (PlayerLogic.HiddenTrigger)
 				{
 				case false:
+					//Background.renderer.material.shader;
+					//BackgroundTemp.material.color = Background.material.color;
+					//Background.renderer.;
 					PlayerLogic.HiddenTrigger=true;
 					ObjectToHide.gameObject.renderer.sortingLayerID=4;
 					SpotLight.gameObject.SetActive(false);
@@ -62,6 +68,7 @@ public class HidingScript : MonoBehaviour
 					kleber=true;
 					break;
 				case true:
+					//Background.material.color = new Color(BackgroundTemp.material.color.r,BackgroundTemp.material.color.g,BackgroundTemp.material.color.b,BackgroundTemp.material.color.a);
 					PlayerLogic.HiddenTrigger=false;
 					player.transform.position = ObjectToHide.transform.position;
 					ObjectToHide.gameObject.renderer.sortingLayerID=0;
