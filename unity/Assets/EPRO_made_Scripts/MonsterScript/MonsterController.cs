@@ -117,7 +117,10 @@ public class MonsterController : MonoBehaviour
         if (coll.gameObject.name == "2DCharacter")
         {
 			//geändert von Alex für ein GameOverScreen
-            restart.GameOver();
+			if(PlayerLogic.HiddenTrigger==false)
+			{
+				restart.GameOver();
+			}
         }
     }
 

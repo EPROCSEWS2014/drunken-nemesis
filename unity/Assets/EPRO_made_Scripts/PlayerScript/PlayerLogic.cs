@@ -50,8 +50,8 @@ public class PlayerLogic : MonoBehaviour
 
 	void Awake()
 	{
-		DontDestroyOnLoad (this);
-		DontDestroyOnLoad (GameObject.Find ("EnemyContainer"));
+		//DontDestroyOnLoad (this);
+		//DontDestroyOnLoad (GameObject.Find ("EnemyContainer"));
 		/*if (GameObject.Find ("EnemyContainer")==null) {
 			Destroy (GameObject.Find ("EnemyContainer"));
 				}*/

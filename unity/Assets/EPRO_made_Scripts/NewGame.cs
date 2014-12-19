@@ -41,7 +41,7 @@ public class NewGame : MonoBehaviour {
 			guiTexture.color = Color.Lerp (guiTexture.color, Color.black, fadeSpeed); // Set down the transparency..
 			if (guiTexture.color.a >= 0.40f) //.. until 40% and..
 			{
-				Application.LoadLevel("level");
+				Application.LoadLevel("alpha");
 			}
 		}
 	}

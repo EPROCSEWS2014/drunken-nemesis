@@ -18,7 +18,7 @@ public class CameraFollow : MonoBehaviour
 	{
 		// Setting up the reference.
 		player = GameObject.FindGameObjectWithTag("Player").transform;
-		DontDestroyOnLoad (this);
+		//DontDestroyOnLoad (this);
 	}
 
 

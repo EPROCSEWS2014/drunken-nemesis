@@ -1,17 +1,17 @@
 using UnityEngine;
 using System.Collections;
 
-public class GameOver : MonoBehaviour {
+public class EndGame : MonoBehaviour {
 	
 	float fadeSpeed = 0.01f;
 	int sceneStarting = 0;
 	
 	void Awake()
 	{
+		guiTexture.pixelInset = new Rect (0f, 0f, Screen.width, Screen.height);
 		//Destroy (GameObject.FindWithTag ("Player"));
 		//Destroy (GameObject.FindWithTag ("MainCamera"));
 		//Destroy (GameObject.FindWithTag ("EnemyC"));
-		guiTexture.pixelInset = new Rect (0f, 0f, Screen.width, Screen.height);
 	}
 	
 	void Update () 
@@ -30,7 +30,7 @@ public class GameOver : MonoBehaviour {
 		{
 			sceneStarting += 1;
 		}
-
+		
 		
 		if (sceneStarting==1) // Check if the scene is ending and..
 		{
@@ -38,7 +38,7 @@ public class GameOver : MonoBehaviour {
 			guiTexture.color = Color.Lerp (guiTexture.color, Color.black, fadeSpeed); // Set down the transparency..
 			if (guiTexture.color.a >= 0.40f) //.. until 40% and..
 			{
-				Application.LoadLevel("alpha");
+				Application.LoadLevel("MainMenu");
 			}
 		}
 	}

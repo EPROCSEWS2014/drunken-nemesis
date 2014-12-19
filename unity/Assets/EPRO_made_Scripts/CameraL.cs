@@ -20,7 +20,7 @@ public class CameraL : MonoBehaviour
 
 	void Awake()
 	{
-		DontDestroyOnLoad (this);
+		//DontDestroyOnLoad (this);
 		//DontDestroyOnLoad (this.thingsThatMakePanic);
 	}
 

@@ -23,7 +23,7 @@ public class Camera2DFollow : MonoBehaviour {
 
 	void Awake()
 	{
-		DontDestroyOnLoad (this);
+		//DontDestroyOnLoad (this);
 		//DontDestroyOnLoad (this.thingsThatMakePanic);
 	}
 	
