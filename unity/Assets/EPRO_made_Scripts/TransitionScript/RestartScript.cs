@@ -30,6 +30,8 @@ public class RestartScript : MonoBehaviour
         Player.transform.position = new Vector2(0, 0);
     }*/
 
+
+	//geändert von Alex für ein GameOverScreen
 	public void GameOver()
 	{
 		Application.LoadLevel ("GameOver");
