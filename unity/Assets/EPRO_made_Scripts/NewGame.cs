@@ -13,9 +13,10 @@ public class NewGame : MonoBehaviour {
 	{
 		guiTexture.pixelInset = new Rect (0f, 0f, Screen.width, Screen.height);
 		TitelS = GameObject.Find ("Titelbild").transform;
-		TitelS1 = GameObject.Find ("TitelbildSchrift").transform;
+		//TitelS1 = GameObject.Find ("TitelbildSchrift").transform;
 		Keys = GameObject.Find ("Keys").transform;
 		Keys.renderer.sortingLayerID = 2;
+		Keys.gameObject.SetActive (false);
 	}
 
 	void Update () {
@@ -37,8 +38,9 @@ public class NewGame : MonoBehaviour {
 		if (sceneStarting == 1) 
 		{
 			TitelS.renderer.material.color=new Color(1f,1f,1f,0f);
-			TitelS1.renderer.material.color=new Color(1f,1f,1f,0f);
+			//TitelS1.renderer.material.color=new Color(1f,1f,1f,0f);
 			Keys.renderer.sortingLayerID = 0;
+			Keys.gameObject.SetActive (true);
 		}
 
 		if (sceneStarting==2) // Check if the scene is ending and..
