@@ -86,7 +86,7 @@ GameObject:
   - 114: {fileID: 283927397}
   - 131: {fileID: 283927396}
   m_Layer: 0
-  m_Name: Titelbild
+  m_Name: GameOverScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
