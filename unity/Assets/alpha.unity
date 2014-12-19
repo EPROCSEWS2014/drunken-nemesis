@@ -1953,8 +1953,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54764339e7ce01140bdacc0542c15cb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5.5
-  detectionRange: 10
+  speed: 10
+  detectionRange: 20
 --- !u!61 &707580551
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2078,8 +2078,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54764339e7ce01140bdacc0542c15cb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 6.75
-  detectionRange: 50
+  speed: 11
+  detectionRange: 40
 --- !u!61 &713228515
 BoxCollider2D:
   m_ObjectHideFlags: 0
